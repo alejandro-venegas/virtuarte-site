@@ -1,8 +1,8 @@
 .header {
-  position: sticky;
+  position: fixed;
   z-index: 1000000;
   top: 0;
-  background-color: #212121;
+  background-color: transparent;
   color: white;
   display: flex;
   align-items: center;

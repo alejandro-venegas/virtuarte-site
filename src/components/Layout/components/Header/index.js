@@ -3,10 +3,17 @@ import React from "react";
 import * as styles from "./index.module.scss";
 import logo from "../../../../images/icon.png";
 import AnimLink from "../../../shared/AnimLink";
+import { StaticImage } from "gatsby-plugin-image";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <img src={logo} alt="Logo" className={styles.logo} />
+      <StaticImage
+        width={56}
+        height={56}
+        src="../../../../images/icon.png"
+        alt="Logo"
+        className={styles.logo}
+      />
       <nav className={styles.nav}>
         <ul className={styles.list}>
           <li>

@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { globalHistory } from "@reach/router";
 
 import TransitionLink from "gatsby-plugin-transition-link";
