@@ -1,16 +1,14 @@
 import * as React from "react";
 
-import loadable from "@loadable/component";
-
-import paintedPiano from "../images/painted_piano.jpg";
-const ParallaxTitle = loadable(() =>
-  import("../components/shared/ParallaxTitle")
-);
+import ParallaxTitle from "../components/shared/ParallaxTitle";
+import { StaticImage } from "gatsby-plugin-image";
 
 const IndexPage = () => {
   return (
     <div>
-      <ParallaxTitle src={paintedPiano} height={"520px"} alt={""} />
+      <ParallaxTitle height={"520px"} alt={""}>
+        <StaticImage src={"../images/painted_piano.jpg"} alt={""} />
+      </ParallaxTitle>
       <div>Index Page</div>
     </div>
   );

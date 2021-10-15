@@ -1,7 +1,6 @@
 import React from "react";
 
 import * as styles from "./index.module.scss";
-import logo from "../../../../images/icon.png";
 import AnimLink from "../../../shared/AnimLink";
 import { StaticImage } from "gatsby-plugin-image";
 const Header = () => {

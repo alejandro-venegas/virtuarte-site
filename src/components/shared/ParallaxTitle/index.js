@@ -3,29 +3,27 @@ import React, { createRef, useEffect } from "react";
 import * as styles from "./ParallaxTitle.module.scss";
 const ParallaxTitle = (props) => {
   let requestId;
-  const imgRef = createRef();
+
   let img;
   function parallaxAnim() {
-    if (this.imgRef.current) {
-      img = this.imgRef.current;
-    }
     const scroll = window.scrollY;
+    // console.log(document.querySelector(".parallax-image"));
 
-    img.setAttribute(
-      "style",
-      `transform: translate3d(0, ${scroll * 0.5}px, 0)`
-    );
+    if (img)
+      img.setAttribute(
+        "style",
+        `transform: translate3d(0, ${scroll * 0.5}px, 0)`
+      );
+    else img = document.querySelector(`.${styles.parallaxImageContainer}`);
 
-    requestId = requestAnimationFrame(
-      parallaxAnim.bind({ imgRef: this.imgRef })
-    );
+    requestId = requestAnimationFrame(parallaxAnim);
   }
   useEffect(() => {
     if (
       typeof requestAnimationFrame !== "undefined" &&
       typeof window !== "undefined"
     ) {
-      requestId = requestAnimationFrame(parallaxAnim.bind({ imgRef }));
+      requestId = requestAnimationFrame(parallaxAnim);
     }
     return () => {
       cancelAnimationFrame(requestId);
@@ -34,8 +32,7 @@ const ParallaxTitle = (props) => {
 
   return (
     <div className={styles.container} style={{ height: props.height }}>
-      {/*<button onClick={()=> console.log(imgRef)}>Hello</button>*/}
-      <img src={props.src} alt={props.alt} ref={imgRef} />
+      <div className={styles.parallaxImageContainer}>{props.children}</div>
     </div>
   );
 };
