@@ -6,7 +6,7 @@ const QuienesSomos = () => {
   return (
     <div>
       <ParallaxTitle height={"340px"} alt={""}>
-        <StaticImage
+        <StaticImage backgroundColor={'rgb(97, 170, 165)'}
           src={"../../images/quienes_somos_hero.jpg"}
           alt={""}
         ></StaticImage>

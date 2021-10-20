@@ -6,7 +6,7 @@ const ExperienciasMusicales = () => {
   return (
     <div>
       <ParallaxTitle height={"340px"} alt={""}>
-        <StaticImage
+        <StaticImage backgroundColor={'rgb(97, 170, 165)'}
           src={"../../images/experiencias_musicales_hero.jpg"}
           alt={"Hero"}
         />

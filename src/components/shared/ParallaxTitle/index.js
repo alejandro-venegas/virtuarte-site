@@ -7,7 +7,6 @@ const ParallaxTitle = (props) => {
   let img;
   function parallaxAnim() {
     const scroll = window.scrollY;
-    // console.log(document.querySelector(".parallax-image"));
 
     if (img)
       img.setAttribute(

@@ -7,7 +7,7 @@ const IndexPage = () => {
   return (
     <div>
       <ParallaxTitle height={"520px"} alt={""}>
-        <StaticImage src={"../images/painted_piano.jpg"} alt={""} />
+        <StaticImage backgroundColor={'rgb(97, 170, 165)'} src={"../images/painted_piano.jpg"} alt={""} />
       </ParallaxTitle>
       <div>Index Page</div>
     </div>

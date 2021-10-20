@@ -7,7 +7,7 @@ const Paquetes = () => {
   return (
     <div>
       <ParallaxTitle height={"520px"} alt={""}>
-        <StaticImage src={"../../images/paquetes_hero.jpg"} alt={"Hero"} />
+        <StaticImage backgroundColor={'rgb(97, 170, 165)'} src={"../../images/paquetes_hero.jpg"} alt={"Hero"} />
       </ParallaxTitle>
     </div>
   );

@@ -6,7 +6,7 @@ import { StaticImage } from "gatsby-plugin-image";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <StaticImage
+      <StaticImage backgroundColor={'rgb(97, 170, 165)'}
         width={56}
         height={56}
         src="../../../../images/icon.png"
