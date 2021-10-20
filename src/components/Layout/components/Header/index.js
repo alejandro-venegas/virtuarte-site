@@ -6,7 +6,8 @@ import { StaticImage } from "gatsby-plugin-image";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <StaticImage backgroundColor={'rgb(97, 170, 165)'}
+      <StaticImage
+        backgroundColor={"rgb(97, 170, 165)"}
         width={56}
         height={56}
         src="../../../../images/icon.png"
@@ -22,7 +23,7 @@ const Header = () => {
           </li>
           <li>
             <AnimLink className={styles.link} to={"/quienes-somos"}>
-              Quienes Somos?
+              ¿Quiénes Somos?
             </AnimLink>
           </li>
           <li>
@@ -47,7 +48,7 @@ const Header = () => {
           </li>
           <li>
             <AnimLink className={styles.link} to={"/contactenos"}>
-              Contactenos
+              Contáctenos
             </AnimLink>
           </li>
         </ul>

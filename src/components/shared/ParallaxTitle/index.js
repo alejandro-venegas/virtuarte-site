@@ -32,6 +32,13 @@ const ParallaxTitle = (props) => {
   return (
     <div className={styles.container} style={{ height: props.height }}>
       <div className={styles.parallaxImageContainer}>{props.children}</div>
+      <div
+        className={styles.overlay}
+        style={{ backgroundColor: props.overlayColor }}
+      ></div>
+      <h1 className={styles.title} style={props.titleStyle}>
+        {props.title}
+      </h1>
     </div>
   );
 };
