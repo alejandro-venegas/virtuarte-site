@@ -1,10 +1,14 @@
 import React from "react";
 
-import ParallaxTitle from "../../components/shared/ParallaxTitle";
+import ParallaxTitle from "../../components/shared/ParallaxTitle/ParallaxTitle";
 import { StaticImage } from "gatsby-plugin-image";
+import { Helmet } from "react-helmet";
 const QuienesSomos = () => {
   return (
     <div>
+      <Helmet>
+        <title>¿Quiénes somos?</title>
+      </Helmet>
       <ParallaxTitle
         overlayColor={"rgba(255,255,255,0.5"}
         title={"¿Quiénes somos?"}

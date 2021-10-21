@@ -1,8 +1,8 @@
 import React from "react";
 
-import * as styles from "./index.module.scss";
+import * as styles from "./Header.module.scss";
 import { StaticImage } from "gatsby-plugin-image";
-import AnimLink from "../../../shared/AnimLink";
+import AnimLink from "../../../shared/AnimLink/AnimLink";
 const Header = (props) => {
   return (
     <header
@@ -15,6 +15,7 @@ const Header = (props) => {
         width={50}
         src="../../../../images/logo.jpeg"
         objectFit={"contain"}
+        imgStyle={{ opacity: 1, transition: "none" }}
         loading={"eager"}
         style={{
           margin: "10px 20px",

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import ParallaxTitle from "../components/shared/ParallaxTitle";
+import ParallaxTitle from "../components/shared/ParallaxTitle/ParallaxTitle";
 import { StaticImage } from "gatsby-plugin-image";
 
 const IndexPage = () => {
