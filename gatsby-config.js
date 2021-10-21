@@ -11,7 +11,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "src/images/logo.jpeg",
       },
     },
     "gatsby-plugin-sharp",
@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-transition-link",
       options: {
-        layout: require.resolve(`./src/components/Layout`),
+        layout: require.resolve(`./src/components/Layout/Layout.js`),
       },
     },
   ],

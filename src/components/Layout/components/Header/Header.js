@@ -3,14 +3,27 @@ import React from "react";
 import * as styles from "./index.module.scss";
 import { StaticImage } from "gatsby-plugin-image";
 import AnimLink from "../../../shared/AnimLink";
-const Header = () => {
+const Header = (props) => {
   return (
-    <header className={styles.header}>
+    <header
+      className={styles.header}
+      style={{
+        backgroundColor: props.isScrolled ? "var(--black)" : "transparent",
+      }}
+    >
       <StaticImage
-        width={56}
+        width={50}
         src="../../../../images/logo.jpeg"
         objectFit={"contain"}
         loading={"eager"}
+        style={{
+          margin: "10px 20px",
+          overflow: "hidden",
+          borderRadius: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
         alt="Logo"
       />
       <nav className={styles.nav}>
