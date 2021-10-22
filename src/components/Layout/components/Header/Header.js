@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import * as styles from "./Header.module.scss";
 import { StaticImage } from "gatsby-plugin-image";
 import AnimLink from "../../../shared/AnimLink/AnimLink";
+import { globalHistory } from "@reach/router";
 const Header = (props) => {
+  const [activeUrl, setActiveUrl] = useState("");
+
+  const checkLocation = () => {
+    setActiveUrl(window.location.pathname);
+  };
+  useEffect(() => {
+    checkLocation();
+    globalHistory.listen(({ action }) => {
+      checkLocation();
+    });
+  }, []);
   return (
     <header
       className={styles.header}
@@ -30,37 +42,61 @@ const Header = (props) => {
       <nav className={styles.nav}>
         <ul className={styles.list}>
           <li>
-            <AnimLink className={styles.link} to={"/"}>
+            <AnimLink activeUrl={activeUrl} className={styles.link} to={"/"}>
               Inicio
             </AnimLink>
           </li>
           <li>
-            <AnimLink className={styles.link} to={"/quienes-somos"}>
+            <AnimLink
+              activeUrl={activeUrl}
+              className={styles.link}
+              to={"/quienes-somos"}
+            >
               ¿Quiénes Somos?
             </AnimLink>
           </li>
           <li>
-            <AnimLink className={styles.link} to={"/docentes"}>
+            <AnimLink
+              activeUrl={activeUrl}
+              className={styles.link}
+              to={"/docentes"}
+            >
               Docentes
             </AnimLink>
           </li>
           <li>
-            <AnimLink className={styles.link} to={"/experiencias-musicales"}>
+            <AnimLink
+              activeUrl={activeUrl}
+              className={styles.link}
+              to={"/experiencias-musicales"}
+            >
               Experiencias Musicales
             </AnimLink>
           </li>
           <li>
-            <AnimLink className={styles.link} to={"/paquetes"}>
+            <AnimLink
+              activeUrl={activeUrl}
+              className={styles.link}
+              to={"/paquetes"}
+            >
               Paquetes
             </AnimLink>
           </li>
           <li>
-            <AnimLink className={styles.link} to={"/preguntas-frecuentes"}>
+            <AnimLink
+              activeUrl={activeUrl}
+              className={styles.link}
+              to={"/preguntas-frecuentes"}
+            >
               Preguntas Frecuentes
             </AnimLink>
           </li>
           <li>
-            <AnimLink className={styles.link} to={"/contactenos"}>
+            <AnimLink
+              activeUrl={activeUrl}
+              className={styles.link}
+              to={"/contactenos"}
+            >
               Contáctenos
             </AnimLink>
           </li>
