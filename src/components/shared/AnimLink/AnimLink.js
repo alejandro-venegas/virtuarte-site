@@ -9,12 +9,17 @@ const AnimLink = (props) => {
   const durationInSeconds = 0.25;
   const isActive =
     props.activeUrl.replaceAll("/", "") === props.to.replaceAll("/", "");
+  let themesClassNames = "";
+  for (const theme in props.theme) {
+    themesClassNames += styles[theme] + " ";
+  }
+  const className = `${styles.link} ${props.className} ${
+    isActive && styles.selected
+  } ${themesClassNames}`;
   return (
     <TransitionLink
       to={props.to}
-      className={`${styles.link} ${props.className} ${
-        isActive && styles.selected
-      }`}
+      className={className}
       exit={{
         length: durationInSeconds,
         trigger: ({ node, e, exit, entry }) => {

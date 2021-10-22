@@ -6,16 +6,52 @@ import AnimLink from "../../../shared/AnimLink/AnimLink";
 import { globalHistory } from "@reach/router";
 const Header = (props) => {
   const [activeUrl, setActiveUrl] = useState("");
+  const [animLinksThemes, setAnimLinksThemes] = useState({});
 
   const checkLocation = () => {
-    setActiveUrl(window.location.pathname);
+    const pathname = window.location.pathname.replaceAll("/", "");
+    setActiveUrl(pathname);
+    switch (pathname) {
+      case "quienes-somos":
+      case "docentes":
+        setAnimLinksThemes((prevState) => {
+          prevState.blackTheme = true;
+          return prevState;
+        });
+        break;
+      default:
+        setAnimLinksThemes((prevState) => {
+          delete prevState.blackTheme;
+          return prevState;
+        });
+        break;
+    }
   };
+  // Check location hook
   useEffect(() => {
     checkLocation();
     globalHistory.listen(({ action }) => {
       checkLocation();
     });
   }, []);
+
+  // Is Scrolled hook
+  useEffect(() => {
+    if (props.isScrolled) {
+      setAnimLinksThemes((prevState) => {
+        const newState = { ...prevState };
+        newState.isScrolled = true;
+        return newState;
+      });
+    } else {
+      setAnimLinksThemes((prevState) => {
+        const newState = { ...prevState };
+        delete newState.isScrolled;
+        return newState;
+      });
+    }
+  }, [props.isScrolled]);
+
   return (
     <header
       className={styles.header}
@@ -42,12 +78,18 @@ const Header = (props) => {
       <nav className={styles.nav}>
         <ul className={styles.list}>
           <li>
-            <AnimLink activeUrl={activeUrl} className={styles.link} to={"/"}>
+            <AnimLink
+              theme={animLinksThemes}
+              activeUrl={activeUrl}
+              className={styles.link}
+              to={"/"}
+            >
               Inicio
             </AnimLink>
           </li>
           <li>
             <AnimLink
+              theme={animLinksThemes}
               activeUrl={activeUrl}
               className={styles.link}
               to={"/quienes-somos"}
@@ -57,6 +99,7 @@ const Header = (props) => {
           </li>
           <li>
             <AnimLink
+              theme={animLinksThemes}
               activeUrl={activeUrl}
               className={styles.link}
               to={"/docentes"}
@@ -66,6 +109,7 @@ const Header = (props) => {
           </li>
           <li>
             <AnimLink
+              theme={animLinksThemes}
               activeUrl={activeUrl}
               className={styles.link}
               to={"/experiencias-musicales"}
@@ -75,6 +119,7 @@ const Header = (props) => {
           </li>
           <li>
             <AnimLink
+              theme={animLinksThemes}
               activeUrl={activeUrl}
               className={styles.link}
               to={"/paquetes"}
@@ -84,6 +129,7 @@ const Header = (props) => {
           </li>
           <li>
             <AnimLink
+              theme={animLinksThemes}
               activeUrl={activeUrl}
               className={styles.link}
               to={"/preguntas-frecuentes"}
@@ -93,6 +139,7 @@ const Header = (props) => {
           </li>
           <li>
             <AnimLink
+              theme={animLinksThemes}
               activeUrl={activeUrl}
               className={styles.link}
               to={"/contactenos"}
