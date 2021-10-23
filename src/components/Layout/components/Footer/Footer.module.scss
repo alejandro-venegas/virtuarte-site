@@ -1,0 +1,25 @@
+@use "src/styles/sizes";
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+  & > div {
+    display: flex;
+    margin: 1rem 0;
+    flex-direction: column;
+    & > span {
+      color: var(--black);
+      font-size: 12px;
+      & > a {
+        color: var(--primaryColor);
+      }
+    }
+  }
+}
+@media screen and (min-width: sizes.$tablet-breakpoint) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

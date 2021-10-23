@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
-    title: "Virtuarte",
+    title: "Virtuartecr",
   },
   plugins: [
     "gatsby-plugin-sass",
