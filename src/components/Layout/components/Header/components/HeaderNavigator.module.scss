@@ -1,0 +1,36 @@
+@use "src/styles/sizes";
+.nav {
+  margin-left: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: var(--black);
+  .list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    li {
+      margin: 0 1rem;
+      width: max-content;
+    }
+  }
+}
+.link {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  color: white;
+}
+
+@media screen and (min-width: sizes.$laptop-breakpoint) {
+  .nav {
+    position: static;
+
+    background-color: transparent;
+    .list {
+      flex-direction: row;
+    }
+  }
+}
