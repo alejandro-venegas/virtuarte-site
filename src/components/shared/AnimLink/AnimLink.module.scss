@@ -2,16 +2,4 @@
   color: white;
   text-decoration: none;
   font-weight: 300;
-  &.black-theme {
-    color: var(--black);
-  }
-  &.selected {
-    font-weight: 400;
-  }
-  &.is-scrolled {
-    color: white;
-    &.selected {
-      color: #61aaa5;
-    }
-  }
 }

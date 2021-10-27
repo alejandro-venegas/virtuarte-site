@@ -7,19 +7,11 @@ import * as styles from "./AnimLink.module.scss";
 
 const AnimLink = (props) => {
   const durationInSeconds = 0.25;
-  const isActive =
-    props.activeUrl.replaceAll("/", "") === props.to.replaceAll("/", "");
-  let themesClassNames = "";
-  for (const theme in props.theme) {
-    themesClassNames += styles[theme] + " ";
-  }
-  const className = `${styles.link} ${props.className} ${
-    isActive && styles.selected
-  } ${themesClassNames}`;
+
   return (
     <TransitionLink
       to={props.to}
-      className={className}
+      className={`${styles.link} ${props.className}`}
       exit={{
         length: durationInSeconds,
         trigger: ({ node, e, exit, entry }) => {

@@ -4,25 +4,74 @@ import React, { useEffect, useState } from "react";
 import { globalHistory } from "@reach/router";
 
 const HeaderNavigator = (props) => {
+  const linkObjects = [
+    {
+      id: "/",
+      to: "/",
+      name: "Inicio",
+    },
+    {
+      id: "/quienes-somos",
+      to: "/quienes-somos",
+      name: "¿Quiénes Somos?",
+    },
+    {
+      id: "/docentes",
+      to: "/docentes",
+      name: "Docentes",
+    },
+    {
+      id: "/experiencias-musicales",
+      to: "/experiencias-musicales",
+      name: "Experiencias Musicales",
+    },
+    {
+      id: "/paquetes",
+      to: "/paquetes",
+      name: "Paquetes",
+    },
+    {
+      id: "/preguntas-frecuentes",
+      to: "/preguntas-frecuentes",
+      name: "Preguntas Frecuentes",
+    },
+    {
+      id: "/contactenos",
+      to: "/contactenos",
+      name: "Contáctenos",
+    },
+  ];
   const [activeUrl, setActiveUrl] = useState("");
-  const [animLinksThemes, setAnimLinksThemes] = useState({});
+  const [animLinksThemes, setAnimLinksThemes] = useState("");
+
+  const linksElements = linkObjects.map((link) => {
+    const isActive =
+      activeUrl.replaceAll("/", "") === link.to.replaceAll("/", "");
+    return (
+      <li>
+        <AnimLink
+          to={link.to}
+          className={`${styles.link} ${isActive && styles.selected} ${
+            props.isScrolled && styles.isScrolled
+          } ${animLinksThemes}`}
+        >
+          {link.name}
+        </AnimLink>
+      </li>
+    );
+  });
 
   const checkLocation = () => {
     const pathname = window.location.pathname.replaceAll("/", "");
     setActiveUrl(pathname);
+    props.onRouteChanged();
     switch (pathname) {
       case "quienes-somos":
       case "docentes":
-        setAnimLinksThemes((prevState) => {
-          prevState.blackTheme = true;
-          return prevState;
-        });
+        setAnimLinksThemes(styles.blackTheme);
         break;
       default:
-        setAnimLinksThemes((prevState) => {
-          delete prevState.blackTheme;
-          return prevState;
-        });
+        setAnimLinksThemes("");
         break;
     }
   };
@@ -34,96 +83,12 @@ const HeaderNavigator = (props) => {
     });
   }, []);
 
-  // Is Scrolled hook
-  useEffect(() => {
-    if (props.isScrolled) {
-      setAnimLinksThemes((prevState) => {
-        const newState = { ...prevState };
-        newState.isScrolled = true;
-        return newState;
-      });
-    } else {
-      setAnimLinksThemes((prevState) => {
-        const newState = { ...prevState };
-        delete newState.isScrolled;
-        return newState;
-      });
-    }
-  }, [props.isScrolled]);
   return (
-    <nav className={styles.nav}>
-      <ul className={styles.list}>
-        <li>
-          <AnimLink
-            theme={animLinksThemes}
-            activeUrl={activeUrl}
-            className={styles.link}
-            to={"/"}
-          >
-            Inicio
-          </AnimLink>
-        </li>
-        <li>
-          <AnimLink
-            theme={animLinksThemes}
-            activeUrl={activeUrl}
-            className={styles.link}
-            to={"/quienes-somos"}
-          >
-            ¿Quiénes Somos?
-          </AnimLink>
-        </li>
-        <li>
-          <AnimLink
-            theme={animLinksThemes}
-            activeUrl={activeUrl}
-            className={styles.link}
-            to={"/docentes"}
-          >
-            Docentes
-          </AnimLink>
-        </li>
-        <li>
-          <AnimLink
-            theme={animLinksThemes}
-            activeUrl={activeUrl}
-            className={styles.link}
-            to={"/experiencias-musicales"}
-          >
-            Experiencias Musicales
-          </AnimLink>
-        </li>
-        <li>
-          <AnimLink
-            theme={animLinksThemes}
-            activeUrl={activeUrl}
-            className={styles.link}
-            to={"/paquetes"}
-          >
-            Paquetes
-          </AnimLink>
-        </li>
-        <li>
-          <AnimLink
-            theme={animLinksThemes}
-            activeUrl={activeUrl}
-            className={styles.link}
-            to={"/preguntas-frecuentes"}
-          >
-            Preguntas Frecuentes
-          </AnimLink>
-        </li>
-        <li>
-          <AnimLink
-            theme={animLinksThemes}
-            activeUrl={activeUrl}
-            className={styles.link}
-            to={"/contactenos"}
-          >
-            Contáctenos
-          </AnimLink>
-        </li>
-      </ul>
+    <nav
+      className={`${styles.nav} ${props.isToggled && styles.isToggled}`}
+      style={{ paddingTop: props.topPadding + "px" }}
+    >
+      <ul className={styles.list}>{linksElements}</ul>
     </nav>
   );
 };

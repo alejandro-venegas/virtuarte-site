@@ -1,17 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import * as styles from "./Header.module.scss";
 import { StaticImage } from "gatsby-plugin-image";
 
 import HeaderNavigator from "./components/HeaderNavigator";
+import { Spin } from "hamburger-react";
 const Header = (props) => {
+  const [isMenuToggled, setIsMenuToggled] = useState(false);
+  const headerRef = useRef();
+  const menuToggleHandler = (toggled) => {
+    setIsMenuToggled(toggled);
+  };
   return (
     <header
+      ref={headerRef}
       className={styles.header}
       style={{
         backgroundColor: props.isScrolled ? "var(--black)" : "transparent",
       }}
     >
+      <div className={styles.hamburger}>
+        <Spin
+          direction={"right"}
+          onToggle={menuToggleHandler}
+          toggled={isMenuToggled}
+        />
+      </div>
       <StaticImage
         width={50}
         src="../../../../images/logo.jpeg"
@@ -28,7 +42,12 @@ const Header = (props) => {
         }}
         alt="Logo"
       />
-      <HeaderNavigator isScrolled={props.isScrolled} />
+      <HeaderNavigator
+        isToggled={isMenuToggled}
+        onRouteChanged={() => setIsMenuToggled(false)}
+        isScrolled={props.isScrolled}
+        topPadding={headerRef?.current?.clientHeight || 0}
+      />
     </header>
   );
 };
