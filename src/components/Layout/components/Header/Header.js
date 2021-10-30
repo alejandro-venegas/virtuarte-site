@@ -42,6 +42,11 @@ const Header = (props) => {
         }}
         alt="Logo"
       />
+      <div
+        aria-hidden={true}
+        onClick={() => setIsMenuToggled(false)}
+        className={`${styles.backdrop} ${isMenuToggled && styles.toggled}`}
+      ></div>
       <HeaderNavigator
         isToggled={isMenuToggled}
         onRouteChanged={() => setIsMenuToggled(false)}
