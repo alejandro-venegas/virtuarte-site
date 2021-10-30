@@ -8,7 +8,7 @@ const IndexPage = () => {
     <div>
       <ParallaxTitle
         overlayColor={"rgba(33,33,33,0.4)"}
-        title={"Virtuartecr"}
+        title={"Virtuarte"}
         titleStyle={{
           color: "white",
           fontSize: "72px",

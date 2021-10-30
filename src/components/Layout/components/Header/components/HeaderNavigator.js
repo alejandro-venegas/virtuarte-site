@@ -41,47 +41,23 @@ const HeaderNavigator = (props) => {
       name: "Contáctenos",
     },
   ];
-  const [activeUrl, setActiveUrl] = useState("");
-  const [animLinksThemes, setAnimLinksThemes] = useState("");
 
   const linksElements = linkObjects.map((link) => {
     const isActive =
-      activeUrl.replaceAll("/", "") === link.to.replaceAll("/", "");
+      props.activeUrl.replaceAll("/", "") === link.to.replaceAll("/", "");
     return (
-      <li>
+      <li key={link.to}>
         <AnimLink
           to={link.to}
           className={`${styles.link} ${isActive && styles.selected} ${
             props.isScrolled && styles.isScrolled
-          } ${animLinksThemes}`}
+          } ${props.color === "black" && styles.blackTheme}`}
         >
           {link.name}
         </AnimLink>
       </li>
     );
   });
-
-  const checkLocation = () => {
-    const pathname = window.location.pathname.replaceAll("/", "");
-    setActiveUrl(pathname);
-    props.onRouteChanged();
-    switch (pathname) {
-      case "quienes-somos":
-      case "docentes":
-        setAnimLinksThemes(styles.blackTheme);
-        break;
-      default:
-        setAnimLinksThemes("");
-        break;
-    }
-  };
-  // Check location hook
-  useEffect(() => {
-    checkLocation();
-    globalHistory.listen(({ action }) => {
-      checkLocation();
-    });
-  }, []);
 
   return (
     <nav

@@ -5,9 +5,33 @@ import { StaticImage } from "gatsby-plugin-image";
 
 import HeaderNavigator from "./components/HeaderNavigator";
 import { Spin } from "hamburger-react";
+import { globalHistory } from "@reach/router";
 const Header = (props) => {
+  const [activeUrl, setActiveUrl] = useState("");
+  const [linksColor, setLinksColor] = useState("white");
   const [isMenuToggled, setIsMenuToggled] = useState(false);
   const headerRef = useRef();
+  const checkLocation = () => {
+    const pathname = window.location.pathname.replaceAll("/", "");
+    setActiveUrl(pathname);
+    switch (pathname) {
+      case "quienes-somos":
+      case "docentes":
+        setLinksColor("black");
+        break;
+      default:
+        setLinksColor("white");
+        break;
+    }
+  };
+  // Check location hook
+  useEffect(() => {
+    checkLocation();
+    globalHistory.listen(({ action }) => {
+      checkLocation();
+      setIsMenuToggled(false);
+    });
+  }, []);
   const menuToggleHandler = (toggled) => {
     setIsMenuToggled(toggled);
   };
@@ -24,6 +48,9 @@ const Header = (props) => {
           direction={"right"}
           onToggle={menuToggleHandler}
           toggled={isMenuToggled}
+          color={
+            linksColor === "white" || isMenuToggled ? "white" : "var(--black)"
+          }
         />
       </div>
       <StaticImage
@@ -48,10 +75,11 @@ const Header = (props) => {
         className={`${styles.backdrop} ${isMenuToggled && styles.toggled}`}
       ></div>
       <HeaderNavigator
+        activeUrl={activeUrl}
         isToggled={isMenuToggled}
-        onRouteChanged={() => setIsMenuToggled(false)}
         isScrolled={props.isScrolled}
         topPadding={headerRef?.current?.clientHeight || 0}
+        color={linksColor}
       />
     </header>
   );
