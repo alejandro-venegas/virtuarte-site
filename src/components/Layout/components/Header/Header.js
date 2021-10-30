@@ -55,7 +55,7 @@ const Header = (props) => {
       </div>
       <StaticImage
         width={50}
-        src="../../../../images/logo.jpeg"
+        src="../../../../images/logo.png"
         objectFit={"contain"}
         imgStyle={{ opacity: 1, transition: "none" }}
         loading={"eager"}

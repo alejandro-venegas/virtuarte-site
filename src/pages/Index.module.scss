@@ -1,0 +1,21 @@
+@use "src/styles/sizes";
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  section {
+    max-width: 570px;
+    flex: 1;
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: sizes.$tablet-breakpoint) {
+  .courses-container {
+    flex-direction: row;
+    section:first-of-type {
+      margin-right: 3rem;
+    }
+  }
+}
