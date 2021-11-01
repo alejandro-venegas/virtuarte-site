@@ -11,6 +11,16 @@
     justify-content: center;
   }
 }
+
+.benefitsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin: 2rem 0;
+}
 @media only screen and (min-width: sizes.$tablet-breakpoint) {
   .courses-container {
     flex-direction: row;

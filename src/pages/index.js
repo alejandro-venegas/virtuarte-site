@@ -3,8 +3,50 @@ import * as React from "react";
 import ParallaxTitle from "../components/shared/ParallaxTitle/ParallaxTitle";
 import { StaticImage } from "gatsby-plugin-image";
 import * as styles from "./Index.module.scss";
-
+import ContentWrapper from "../components/shared/ContentWrapper/ContentWrapper";
+import BenefitsItem from "../components/index/BenefitsItem/BenefitsItem";
+import clickImg from "../images/benefits/click.png";
+import horarioImg from "../images/benefits/horario.png";
+import programasImg from "../images/benefits/programas.png";
+import juegosImg from "../images/benefits/juegos.png";
+import aprendeImg from "../images/benefits/aprende.png";
+import educacionImg from "../images/benefits/educacion.png";
 const IndexPage = () => {
+  const benefits = [
+    {
+      img: clickImg,
+      alt: "Un solo click",
+      description: "Accede desde cualquier lugar con tan solo un click.",
+    },
+    {
+      img: horarioImg,
+      alt: "Horario",
+      description: "Escoge el horario y docente de preferencia.",
+    },
+    {
+      img: programasImg,
+
+      alt: "Programas adaptados",
+      description: "Programas adaptados a sus objetivos.",
+    },
+    {
+      img: juegosImg,
+      alt: "Actividades",
+      description:
+        "Acceso a videos, juegos, actividades y más en nuestra plataforma virtual.",
+    },
+    {
+      img: aprendeImg,
+
+      alt: "Aprende",
+      description: "Aprende disfrutando.",
+    },
+    {
+      img: educacionImg,
+      alt: "Integral",
+      description: "Educación integral y positiva.",
+    },
+  ];
   return (
     <section>
       <ParallaxTitle
@@ -23,7 +65,7 @@ const IndexPage = () => {
           alt={""}
         />
       </ParallaxTitle>
-      <div className={"content-margin"}>
+      <ContentWrapper>
         <span className={"h2"}>¡En crecimiento continuo!</span>
         <div className={styles.coursesContainer}>
           <section>
@@ -63,9 +105,17 @@ const IndexPage = () => {
         </div>
         <section>
           <h2>BENEFICIOS</h2>
-          <div className={styles.coursesContainer}></div>
+          <div className={styles.benefitsContainer}>
+            {benefits.map((benefit) => (
+              <BenefitsItem
+                description={benefit.description}
+                img={benefit.img}
+                alt={benefit.alt}
+              ></BenefitsItem>
+            ))}
+          </div>
         </section>
-      </div>
+      </ContentWrapper>
     </section>
   );
 };

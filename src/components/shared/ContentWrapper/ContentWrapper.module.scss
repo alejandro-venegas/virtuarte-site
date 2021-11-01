@@ -1,0 +1,14 @@
+@use "src/styles/sizes";
+.wrapper {
+  max-width: 1300px;
+  margin: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: sizes.$laptop-breakpoint) {
+  .wrapper {
+    margin: 0 5rem;
+  }
+}
