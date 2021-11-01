@@ -14,13 +14,13 @@ const Layout = (props) => {
     observer.observe(scrollReferenceRef.current);
   }, []);
   return (
-    <div>
+    <div class={styles.container}>
       <Helmet>
         <title>Virtuarte</title>
       </Helmet>
       <div className={styles.scrollReference} ref={scrollReferenceRef} />
       <Header isScrolled={isScrolled} />
-      <main style={{ height: "200vh" }}>{props.children}</main>
+      <main>{props.children}</main>
       <Footer />
     </div>
   );

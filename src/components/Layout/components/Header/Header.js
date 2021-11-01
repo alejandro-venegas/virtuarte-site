@@ -49,7 +49,9 @@ const Header = (props) => {
           onToggle={menuToggleHandler}
           toggled={isMenuToggled}
           color={
-            linksColor === "white" || isMenuToggled ? "white" : "var(--black)"
+            linksColor === "white" || isMenuToggled || props.isScrolled
+              ? "white"
+              : "var(--black)"
           }
         />
       </div>

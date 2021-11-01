@@ -1,7 +1,6 @@
 import * as styles from "./HeaderNavigator.module.scss";
 import AnimLink from "../../../../shared/AnimLink/AnimLink";
-import React, { useEffect, useState } from "react";
-import { globalHistory } from "@reach/router";
+import React from "react";
 
 const HeaderNavigator = (props) => {
   const linkObjects = [
