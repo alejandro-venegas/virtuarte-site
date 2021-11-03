@@ -138,6 +138,7 @@ const IndexPage = () => {
             width: "100%",
             padding: "1rem",
             margin: "1rem 0",
+            display: "flex",
           }}
         >
           <ContentWrapper>
