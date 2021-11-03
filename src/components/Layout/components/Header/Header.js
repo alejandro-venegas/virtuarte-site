@@ -38,10 +38,7 @@ const Header = (props) => {
   return (
     <header
       ref={headerRef}
-      className={styles.header}
-      style={{
-        backgroundColor: props.isScrolled ? "var(--black)" : "transparent",
-      }}
+      className={`${styles.header} ${props.isScrolled && styles.isScrolled}`}
     >
       <div className={styles.hamburger}>
         <Spin

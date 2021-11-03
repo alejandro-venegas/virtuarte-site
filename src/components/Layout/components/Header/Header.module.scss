@@ -29,13 +29,18 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: black;
+  background-color: var(--black);
   &.toggled {
     opacity: 0.5;
     visibility: visible;
   }
 }
-
+.isScrolled {
+  background-color: var(--black);
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.75);
+}
 @media screen and (min-width: sizes.$laptop-breakpoint) {
   .header {
     .hamburger {
