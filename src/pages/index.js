@@ -11,6 +11,8 @@ import programasImg from "../images/benefits/programas.png";
 import juegosImg from "../images/benefits/juegos.png";
 import aprendeImg from "../images/benefits/aprende.png";
 import educacionImg from "../images/benefits/educacion.png";
+import AnimLink from "../components/shared/AnimLink/AnimLink";
+import Button from "../components/shared/Button/Button";
 const IndexPage = () => {
   const benefits = [
     {
@@ -115,7 +117,44 @@ const IndexPage = () => {
             ))}
           </div>
         </section>
+        <section>
+          <h2>Variedad de paquetes</h2>
+          <p style={{ maxWidth: "750px", textAlign: "center" }}>
+            Virtuarte presenta variedad de paquetes para diferentes modalidades
+            de aprendizaje. ¡Escoge el paquete que se adapte a su interés!
+          </p>
+          <AnimLink
+            style={{ width: "100%", maxWidth: "560px" }}
+            to={"/paquetes"}
+          >
+            <Button>Mirar Paquetes</Button>
+          </AnimLink>
+        </section>
       </ContentWrapper>
+      <section>
+        <div
+          style={{
+            backgroundColor: "var(--primaryColor)",
+            width: "100%",
+            padding: "1rem",
+            margin: "1rem 0",
+          }}
+        >
+          <ContentWrapper>
+            <h2 style={{ color: "white" }}>
+              Reserva tu clase de muestra gratuita
+            </h2>
+          </ContentWrapper>
+        </div>
+        <ContentWrapper>
+          <a
+            style={{ maxWidth: "360px", width: "100%" }}
+            href="https://httpssitesgooglecomviewvirtuartecrinicio.simplybook.me/v2/"
+          >
+            <Button>Reservar ahora</Button>
+          </a>
+        </ContentWrapper>
+      </section>
     </section>
   );
 };

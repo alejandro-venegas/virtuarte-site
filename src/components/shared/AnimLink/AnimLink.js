@@ -12,6 +12,7 @@ const AnimLink = (props) => {
     <TransitionLink
       to={props.to}
       className={`${styles.link} ${props.className}`}
+      style={props.style}
       exit={{
         length: durationInSeconds,
         trigger: ({ node, e, exit, entry }) => {

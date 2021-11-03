@@ -5,7 +5,7 @@
 
 /*Variables*/
 :root {
-  --primaryColor: rgb(97, 170, 165);
+  --primaryColor: #39958f;
   --black: #212121;
 }
 html,
@@ -44,6 +44,7 @@ p {
   text-align: justify;
   font-size: 15px;
   line-height: 1.667;
+  max-width: 100%;
 }
 
 a {

@@ -1,0 +1,20 @@
+.button {
+  margin: 0.5rem 0;
+  background-color: var(--primaryColor);
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+  transition: box-shadow 0.2s linear;
+  &:hover {
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+  }
+}

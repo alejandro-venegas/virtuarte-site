@@ -13,7 +13,11 @@ const Footer = (props) => {
         <span>Correo: virtuartecr@gmail.com</span>
         <span>
           Facebook:{" "}
-          <a href="https://www.facebook.com/Virtuartecr" target={"_blank"}>
+          <a
+            href="https://www.facebook.com/Virtuartecr"
+            target={"_blank"}
+            rel={"noreferrer"}
+          >
             virtuartecr
           </a>
         </span>
@@ -22,7 +26,7 @@ const Footer = (props) => {
           <a
             href="https://www.instagram.com/virtuartecr"
             target={"_blank"}
-            target={"_blank"}
+            rel={"noreferrer"}
           >
             virtuartecr
           </a>
