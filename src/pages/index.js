@@ -132,15 +132,7 @@ const IndexPage = () => {
         </section>
       </ContentWrapper>
       <section>
-        <div
-          style={{
-            backgroundColor: "var(--primaryColor)",
-            width: "100%",
-            padding: "1rem",
-            margin: "1rem 0",
-            display: "flex",
-          }}
-        >
+        <div className={styles.coloredBackground}>
           <ContentWrapper>
             <h2 style={{ color: "white" }}>
               Reserva tu clase de muestra gratuita
