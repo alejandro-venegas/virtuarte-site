@@ -1,0 +1,35 @@
+.backgroundColor {
+  background-color: rgba(242, 242, 242, 1);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  margin: 3rem 0;
+}
+.misionVisionContainer {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  section {
+    max-width: 100%;
+    width: 450px;
+    flex: 1;
+    min-width: 200px;
+    margin: 0 1.5rem;
+  }
+}
+.metodologiaContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .metodologiaItem {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    .h3 {
+      text-align: center;
+    }
+  }
+}
