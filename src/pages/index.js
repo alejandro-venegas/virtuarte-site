@@ -5,12 +5,12 @@ import { StaticImage } from "gatsby-plugin-image";
 import * as styles from "./Index.module.scss";
 import ContentWrapper from "../components/shared/ContentWrapper/ContentWrapper";
 import BenefitsItem from "../components/index/BenefitsItem/BenefitsItem";
-import clickImg from "../images/benefits/click.png";
-import horarioImg from "../images/benefits/horario.png";
-import programasImg from "../images/benefits/programas.png";
-import juegosImg from "../images/benefits/juegos.png";
-import aprendeImg from "../images/benefits/aprende.png";
-import educacionImg from "../images/benefits/educacion.png";
+import clickImg from "../images/benefits/click.svg";
+import horarioImg from "../images/benefits/horario.svg";
+import programasImg from "../images/benefits/programas.svg";
+import juegosImg from "../images/benefits/juegos.svg";
+import aprendeImg from "../images/benefits/aprende.svg";
+import educacionImg from "../images/benefits/educacion.svg";
 import AnimLink from "../components/shared/AnimLink/AnimLink";
 import Button from "../components/shared/Button/Button";
 const IndexPage = () => {
