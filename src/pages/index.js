@@ -113,6 +113,7 @@ const IndexPage = () => {
                 description={benefit.description}
                 img={benefit.img}
                 alt={benefit.alt}
+                key={benefit.alt}
               ></BenefitsItem>
             ))}
           </div>

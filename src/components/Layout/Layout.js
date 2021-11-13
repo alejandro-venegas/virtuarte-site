@@ -14,7 +14,7 @@ const Layout = (props) => {
     observer.observe(scrollReferenceRef.current);
   }, []);
   return (
-    <div class={styles.container}>
+    <div className={styles.container}>
       <Helmet>
         <title>Virtuarte</title>
       </Helmet>
