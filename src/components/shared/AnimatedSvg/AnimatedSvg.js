@@ -1,16 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
-
-import * as styles from "./AnimatedSvg.module.scss";
 import anime from "animejs";
+import { nanoid } from "nanoid";
+import * as styles from "./AnimatedSvg.module.scss";
 const AnimatedSvg = (props) => {
   const { ref, inView } = useInView({
     threshold: 0.8,
     triggerOnce: true,
   });
-  if (inView)
+  const [uniqueClass] = useState("animated-svg-" + nanoid());
+
+  if (inView) {
     anime({
-      targets: `.animate-svg .${props.pathClass}`,
+      targets: `.${uniqueClass} path`,
       keyframes: [
         {
           strokeDashoffset: anime.setDashoffset,
@@ -23,6 +25,7 @@ const AnimatedSvg = (props) => {
         {
           strokeDashoffset: [anime.setDashoffset, 0],
           duration: 1600,
+          delay: 300,
         },
         {
           fillOpacity: [0, 1],
@@ -32,9 +35,19 @@ const AnimatedSvg = (props) => {
       easing: "easeOutSine",
       direction: "normal",
     });
+  } else {
+    anime({
+      targets: `.${uniqueClass} path`,
+      strokeDashoffset: anime.setDashoffset,
+      fillOpacity: 0,
+      easing: "linear",
+      duration: 0,
+      direction: "normal",
+    });
+  }
 
   return (
-    <div className={`animate-svg`} ref={ref}>
+    <div className={`${uniqueClass} ${styles.container}`} ref={ref}>
       {props.children}
     </div>
   );

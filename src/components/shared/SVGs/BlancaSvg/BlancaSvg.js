@@ -3,11 +3,11 @@ import * as styles from "./BlancaSvg.module.scss";
 import AnimatedSvg from "../../AnimatedSvg/AnimatedSvg";
 const BlancaSvg = (props) => {
   return (
-    <AnimatedSvg pathClass={styles.cls1}>
+    <AnimatedSvg>
       <svg
         className={props.className}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 32.66 61.25"
+        viewBox="0 0 18.86 61.12"
       >
         <g id="Layer_2" data-name="Layer 2">
           <g>
