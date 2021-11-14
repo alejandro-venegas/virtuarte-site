@@ -1,7 +1,7 @@
 import React from "react";
 import * as styles from "./SilencioSemicorcheaSvg.module.scss";
 import AnimatedSvg from "../../AnimatedSvg/AnimatedSvg";
-import anime from "animejs";
+
 const DobleCorcheaSvg = (props) => {
   return (
     <AnimatedSvg pathClass={styles.cls1}>

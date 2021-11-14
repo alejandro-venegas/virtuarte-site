@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import anime from "animejs";
 import { nanoid } from "nanoid";
@@ -10,40 +10,42 @@ const AnimatedSvg = (props) => {
   });
   const [uniqueClass] = useState("animated-svg-" + nanoid());
 
-  if (inView) {
-    anime({
-      targets: `.${uniqueClass} path`,
-      keyframes: [
-        {
-          strokeDashoffset: anime.setDashoffset,
-          duration: 0,
-        },
-        {
-          fillOpacity: 0,
-          duration: 0,
-        },
-        {
-          strokeDashoffset: [anime.setDashoffset, 0],
-          duration: 1600,
-          delay: 300,
-        },
-        {
-          fillOpacity: [0, 1],
-          duration: 1000,
-        },
-      ],
-      easing: "easeOutSine",
-      direction: "normal",
-    });
-  } else {
-    anime({
-      targets: `.${uniqueClass} path`,
-      strokeDashoffset: anime.setDashoffset,
-      fillOpacity: 0,
-      easing: "linear",
-      duration: 0,
-      direction: "normal",
-    });
+  if (typeof window !== "undefined") {
+    if (inView) {
+      anime({
+        targets: `.${uniqueClass} path`,
+        keyframes: [
+          {
+            strokeDashoffset: anime.setDashoffset,
+            duration: 0,
+          },
+          {
+            fillOpacity: 0,
+            duration: 0,
+          },
+          {
+            strokeDashoffset: [anime.setDashoffset, 0],
+            duration: 1600,
+            delay: 300,
+          },
+          {
+            fillOpacity: [0, 1],
+            duration: 1000,
+          },
+        ],
+        easing: "easeOutSine",
+        direction: "normal",
+      });
+    } else {
+      anime({
+        targets: `.${uniqueClass} path`,
+        strokeDashoffset: anime.setDashoffset,
+        fillOpacity: 0,
+        easing: "linear",
+        duration: 0,
+        direction: "normal",
+      });
+    }
   }
 
   return (
