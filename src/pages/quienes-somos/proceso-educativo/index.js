@@ -9,7 +9,7 @@ import SilencioSemicorcheaSvg from "../../../components/shared/SVGs/SilencioSemi
 import SemicorcheaSvg from "../../../components/shared/SVGs/SemicorcheaSvg/SemicorcheaSvg";
 import ContentWrapper from "../../../components/shared/ContentWrapper/ContentWrapper";
 import BemolSvg from "../../../components/shared/SVGs/BemolSvg/BemolSvg";
-import ProcesoItem from "./components/ProcesoItem/ProcesoItem";
+import GridItem from "../../../components/quienes-somos/components/GridItem/GridItem";
 
 const ProcesoEducativo = () => {
   const procesos = [
@@ -69,13 +69,13 @@ const ProcesoEducativo = () => {
       <ContentWrapper>
         <div className={styles.procesosContainer}>
           {procesos.map((proceso) => (
-            <ProcesoItem
+            <GridItem
               key={proceso.title}
               title={proceso.title}
               description={proceso.description}
             >
               {proceso.image}
-            </ProcesoItem>
+            </GridItem>
           ))}
         </div>
       </ContentWrapper>

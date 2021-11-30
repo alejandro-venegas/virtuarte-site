@@ -1,5 +1,5 @@
 @use "/src/styles/sizes";
-.procesoItem {
+.gridItem {
   margin: 2rem;
   max-width: 250px;
   width: 100%;
@@ -24,7 +24,7 @@
 }
 
 @media screen and (min-width: sizes.$laptop-breakpoint) {
-  .procesoItem {
+  .gridItem {
     max-width: calc(30% - 4rem);
     .image {
       height: 250px;

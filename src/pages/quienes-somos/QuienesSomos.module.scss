@@ -23,9 +23,11 @@
 .metodologiaContainer {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
   .metodologiaItem {
-    width: 220px;
+    width: 266px;
     display: flex;
     flex-direction: column;
     .h3 {

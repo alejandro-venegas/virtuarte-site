@@ -5,6 +5,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
 import ContentWrapper from "../../components/shared/ContentWrapper/ContentWrapper";
 import procesoEducativoImg from "../../images/quienes-somos/proceso_educativo.svg";
+import experienciaMusicalImg from "../../images/quienes-somos/experiencia_musical.svg";
 import AnimLink from "../../components/shared/AnimLink/AnimLink";
 const QuienesSomos = () => {
   return (
@@ -69,6 +70,13 @@ const QuienesSomos = () => {
               className={styles.metodologiaItem}
             >
               <img src={procesoEducativoImg} alt="Proceso Educativo" />
+              <p className={`h3 ${styles.h3}`}>Proceso Educativo</p>
+            </AnimLink>
+            <AnimLink
+              to={"./experiencia-musical"}
+              className={styles.metodologiaItem}
+            >
+              <img src={experienciaMusicalImg} alt="Experiencia Musical" />
               <p className={`h3 ${styles.h3}`}>Proceso Educativo</p>
             </AnimLink>
           </div>
