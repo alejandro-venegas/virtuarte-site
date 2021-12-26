@@ -3,3 +3,16 @@
   font-size: 45px;
   font-weight: normal;
 }
+
+.cursos-list {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: rgb(45, 58, 90);
+  background: linear-gradient(
+    90deg,
+    rgba(45, 58, 90, 1) 0%,
+    rgba(54, 106, 117, 1) 100%
+  );
+}

@@ -77,7 +77,7 @@ const QuienesSomos = () => {
               className={styles.metodologiaItem}
             >
               <img src={experienciaMusicalImg} alt="Experiencia Musical" />
-              <p className={`h3 ${styles.h3}`}>Proceso Educativo</p>
+              <p className={`h3 ${styles.h3}`}>Experiencia Musical</p>
             </AnimLink>
           </div>
         </ContentWrapper>
