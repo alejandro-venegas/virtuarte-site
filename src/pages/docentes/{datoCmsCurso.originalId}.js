@@ -16,12 +16,13 @@ const Curso = ({ data }) => {
 export default Curso;
 
 export const query = graphql`
-  query MyQuery($eq: String) {
-    datoCmsCurso(originalId: { eq: $eq }) {
+  query MyQuery($originalId: String) {
+    datoCmsCurso(originalId: { eq: $originalId }) {
       docentes {
         nombre
         originalId
       }
+      originalId
       nombre
     }
   }
