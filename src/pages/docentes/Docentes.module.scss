@@ -2,6 +2,7 @@
   color: var(--primaryColor);
   font-size: 45px;
   font-weight: normal;
+  text-align: center;
 }
 
 .cursos-list {
@@ -9,6 +10,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   background: rgb(45, 58, 90);
   background: linear-gradient(
     90deg,
