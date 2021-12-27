@@ -1,11 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import * as styles from "../Docentes.module.scss";
+import * as styles from "../docentes/Docentes.module.scss";
 import { graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import ParallaxTitle from "../../../components/shared/ParallaxTitle/ParallaxTitle";
-import ContentWrapper from "../../../components/shared/ContentWrapper/ContentWrapper";
-import Index from "../../../components/curso/DocenteItem";
+import ParallaxTitle from "../../components/shared/ParallaxTitle/ParallaxTitle";
+import ContentWrapper from "../../components/shared/ContentWrapper/ContentWrapper";
+import Index from "../../components/curso/DocenteItem";
 
 const Curso = ({ data }) => {
   const curso = data.datoCmsCurso?.nombre;
@@ -27,7 +27,7 @@ const Curso = ({ data }) => {
       >
         <StaticImage
           backgroundColor={"rgb(97, 170, 165)"}
-          src={"../../../images/curso/curso_hero.jpeg"}
+          src={"../../images/curso/curso_hero.jpeg"}
           alt={""}
         ></StaticImage>
       </ParallaxTitle>
@@ -45,7 +45,7 @@ const Curso = ({ data }) => {
 export default Curso;
 
 export const query = graphql`
-  query MyQuery($originalId: String) {
+  query Query($originalId: String) {
     datoCmsCurso(originalId: { eq: $originalId }) {
       docentes {
         nombre

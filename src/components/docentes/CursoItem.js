@@ -3,7 +3,7 @@ import AnimLink from "../shared/AnimLink/AnimLink";
 
 const CursoItem = (props) => {
   return (
-    <AnimLink to={"curso/" + props.id}>
+    <AnimLink to={"/curso/" + props.id}>
       <section style={{ width: "min-content", margin: "2rem" }}>
         <img
           src={props.imgUrl}
