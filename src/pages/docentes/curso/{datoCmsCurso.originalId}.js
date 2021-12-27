@@ -5,7 +5,7 @@ import { graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import ParallaxTitle from "../../../components/shared/ParallaxTitle/ParallaxTitle";
 import ContentWrapper from "../../../components/shared/ContentWrapper/ContentWrapper";
-import DocenteItem from "../../../components/curso/docente-item";
+import Index from "../../../components/curso/DocenteItem";
 
 const Curso = ({ data }) => {
   const curso = data.datoCmsCurso?.nombre;
@@ -36,7 +36,7 @@ const Curso = ({ data }) => {
           ¡Conocé nuestros docentes de {curso.toLowerCase()}!
         </h2>
         {docentes.map((docente) => (
-          <DocenteItem key={docente.originalId} docente={docente} />
+          <Index key={docente.originalId} docente={docente} />
         ))}
       </ContentWrapper>
     </section>

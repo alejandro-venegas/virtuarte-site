@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 import * as styles from "./Docentes.module.scss";
 import { graphql } from "gatsby";
-import CursoItem from "../../components/docentes/curso-item";
+import CursoItem from "../../components/docentes/CursoItem";
 
 const Docentes = ({ data }) => {
   return (
