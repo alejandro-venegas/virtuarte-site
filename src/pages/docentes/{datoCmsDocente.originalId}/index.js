@@ -1,13 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
-
+import { StructuredText } from "react-datocms";
 import * as styles from "./Docente.module.scss";
 import ContentWrapper from "../../../components/shared/ContentWrapper/ContentWrapper";
 import Button from "../../../components/shared/Button/Button";
 
 const Docente = ({ data }) => {
-  const { nombre, apellidos, titulo, biografia, videoId } = data.datoCmsDocente;
+  const { nombre, apellidos, experiencias, niveles, biografia, videoId } =
+    data.datoCmsDocente;
   console.log(data);
   return (
     <section style={{ marginTop: "100px" }}>
@@ -40,9 +41,17 @@ const Docente = ({ data }) => {
             </a>
           </div>
         </div>
-        <section style={{ margin: "2rem 0" }}>
-          <h3 style={{ alignSelf: "flex-start" }}>Biografía:</h3>
+        <section className={styles.section}>
+          <h3>Biografía:</h3>
           <p style={{ whiteSpace: "pre-wrap" }}>{biografia}</p>
+        </section>
+        <section className={styles.section}>
+          <h3>Experiencia laboral:</h3>
+          <StructuredText data={experiencias} />
+        </section>
+        <section className={styles.section}>
+          <h3>Niveles que imparte:</h3>
+          <StructuredText data={experiencias} />
         </section>
       </ContentWrapper>
     </section>
@@ -59,6 +68,12 @@ export const query = graphql`
       nombre
       titulo
       videoId
+      experiencias {
+        value
+      }
+      niveles {
+        value
+      }
     }
   }
 `;
