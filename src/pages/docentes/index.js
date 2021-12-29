@@ -30,7 +30,7 @@ export default Docentes;
 
 export const query = graphql`
   query {
-    allDatoCmsCurso {
+    allDatoCmsCurso(sort: { fields: position }) {
       nodes {
         nombre
         originalId

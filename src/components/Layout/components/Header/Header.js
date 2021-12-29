@@ -11,20 +11,23 @@ const Header = (props) => {
   const [linksColor, setLinksColor] = useState("white");
   const [isMenuToggled, setIsMenuToggled] = useState(false);
   const headerRef = useRef();
+
   const checkLocation = () => {
     const pathname = window.location.pathname.replaceAll("/", "");
     setActiveUrl(pathname);
-    switch (pathname) {
-      case "quienes-somos":
-      case "docentes":
-        setLinksColor("black");
-        break;
-      default:
-        setLinksColor("white");
-        break;
+
+    if (
+      pathname.includes("docentes") ||
+      pathname.includes("quienes-somos") ||
+      pathname.includes("curso")
+    ) {
+      setLinksColor("black");
+    } else {
+      setLinksColor("white");
     }
   };
   // Check location hook
+
   useEffect(() => {
     checkLocation();
     globalHistory.listen(({ action }) => {
@@ -35,6 +38,7 @@ const Header = (props) => {
   const menuToggleHandler = (toggled) => {
     setIsMenuToggled(toggled);
   };
+
   return (
     <header
       ref={headerRef}

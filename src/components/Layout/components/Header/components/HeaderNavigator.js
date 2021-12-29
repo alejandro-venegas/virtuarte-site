@@ -42,8 +42,14 @@ const HeaderNavigator = (props) => {
   ];
 
   const linksElements = linkObjects.map((link) => {
+    const activeUrl = props.activeUrl.replaceAll("/", "");
+    const itemUrl = link.to.replaceAll("/", "");
+
     const isActive =
-      props.activeUrl.replaceAll("/", "") === link.to.replaceAll("/", "");
+      (!itemUrl && activeUrl === itemUrl) ||
+      (itemUrl && activeUrl.includes(itemUrl));
+    console.log(activeUrl, itemUrl, isActive);
+
     return (
       <li key={link.to}>
         <AnimLink
