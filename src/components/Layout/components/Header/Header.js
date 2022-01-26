@@ -6,6 +6,13 @@ import { StaticImage } from "gatsby-plugin-image";
 import HeaderNavigator from "./components/HeaderNavigator";
 import { Spin } from "hamburger-react";
 import { globalHistory } from "@reach/router";
+
+const isBlackHeader = (pathname) =>
+  pathname.includes("docentes") ||
+  (pathname.includes("quienes-somos") &&
+    !pathname.includes("proceso-educativo") &&
+    !pathname.includes("experiencia-musical")) ||
+  pathname.includes("curso");
 const Header = (props) => {
   const [activeUrl, setActiveUrl] = useState("");
   const [linksColor, setLinksColor] = useState("white");
@@ -16,11 +23,7 @@ const Header = (props) => {
     const pathname = window.location.pathname.replaceAll("/", "");
     setActiveUrl(pathname);
 
-    if (
-      pathname.includes("docentes") ||
-      pathname.includes("quienes-somos") ||
-      pathname.includes("curso")
-    ) {
+    if (isBlackHeader(pathname)) {
       setLinksColor("black");
     } else {
       setLinksColor("white");
