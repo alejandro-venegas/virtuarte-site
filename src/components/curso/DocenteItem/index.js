@@ -4,8 +4,7 @@ import Button from "../../shared/Button/Button";
 import * as styles from "./DocenteItem.module.scss";
 import AnimLink from "../../shared/AnimLink/AnimLink";
 const DocenteItem = (props) => {
-  const { nombre, apellidos, titulo, resumen, foto, originalId } =
-    props.docente;
+  const { nombre, apellidos, titulo, resumen, foto, id } = props.docente;
   return (
     <article className={styles.docenteItem}>
       <div className={styles.imageContainer}>
@@ -16,7 +15,7 @@ const DocenteItem = (props) => {
       </div>
       <div className={styles.textContainer}>
         <p>{resumen}</p>
-        <AnimLink style={{ width: "100%" }} to={"/docentes/" + originalId}>
+        <AnimLink style={{ width: "100%" }} to={"/docentes/" + id}>
           <Button>Ver más</Button>
         </AnimLink>
       </div>

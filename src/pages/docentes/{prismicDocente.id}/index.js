@@ -1,14 +1,21 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
-import { StructuredText } from "react-datocms";
 import * as styles from "./Docente.module.scss";
 import ContentWrapper from "../../../components/shared/ContentWrapper/ContentWrapper";
 import Button from "../../../components/shared/Button/Button";
+import { PrismicRichText } from "@prismicio/react";
 
 const Docente = ({ data }) => {
-  const { nombre, apellidos, experiencias, niveles, biografia, videoId } =
-    data.datoCmsDocente;
+  const docente = data.prismicDocente?.data;
+
+  const nombre = docente.nombres?.text;
+  const apellidos = docente.apellidos?.text;
+  const biografia = docente.biografia;
+  const nivelesQueImparte = docente.niveles_que_imparte;
+  const experienciaLaboral = docente.experiencia_laboral;
+  const video = docente.video;
+
   console.log(data);
   return (
     <section style={{ marginTop: "100px" }}>
@@ -20,14 +27,11 @@ const Docente = ({ data }) => {
       <ContentWrapper>
         <h1 className={"h2"}>Perfil de docente</h1>
         <div className={styles.videoContainer}>
-          {videoId && (
-            <iframe
-              src={"https://www.youtube.com/embed/" + videoId}
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+          {video && (
+            <div
+              style={{ width: "100%" }}
+              dangerouslySetInnerHTML={{ __html: video.html }}
+            />
           )}
           <div>
             <h2>
@@ -43,15 +47,15 @@ const Docente = ({ data }) => {
         </div>
         <section className={styles.section}>
           <h3>Biografía:</h3>
-          <p style={{ whiteSpace: "pre-wrap" }}>{biografia}</p>
+          <PrismicRichText field={biografia.richText} />
         </section>
         <section className={styles.section}>
           <h3>Experiencia laboral:</h3>
-          <StructuredText data={experiencias} />
+          <PrismicRichText field={experienciaLaboral.richText} />
         </section>
         <section className={styles.section}>
           <h3>Niveles que imparte:</h3>
-          <StructuredText data={experiencias} />
+          <PrismicRichText field={nivelesQueImparte.richText} />
         </section>
       </ContentWrapper>
     </section>
@@ -61,18 +65,28 @@ const Docente = ({ data }) => {
 export default Docente;
 
 export const query = graphql`
-  query MyQuery($originalId: String) {
-    datoCmsDocente(originalId: { eq: $originalId }) {
-      apellidos
-      biografia
-      nombre
-      titulo
-      videoId
-      experiencias {
-        value
-      }
-      niveles {
-        value
+  query MyQuery($id: String) {
+    prismicDocente(id: { eq: $id }) {
+      data {
+        apellidos {
+          text
+        }
+        biografia {
+          richText
+        }
+        experiencia_laboral {
+          richText
+        }
+        niveles_que_imparte {
+          richText
+        }
+        nombres {
+          text
+        }
+        video {
+          embed_url
+          html
+        }
       }
     }
   }

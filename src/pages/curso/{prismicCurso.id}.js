@@ -43,10 +43,10 @@ const Curso = ({ data }) => {
             foto: docenteData.foto,
             titulo: docenteData.titulo?.text,
             resumen: docenteData.resumen?.text,
-            prismicId: docenteDoc.docente.document.id,
+            id: docenteDoc.docente.document.id,
           };
 
-          return <Index key={docente.prismicId} docente={docente} />;
+          return <Index key={docente.id} docente={docente} />;
         })}
       </ContentWrapper>
     </section>
