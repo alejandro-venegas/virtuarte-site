@@ -13,12 +13,12 @@ const Docentes = ({ data }) => {
       </Helmet>
       <h1 className={styles.title}>¡Conocé nuestros docentes!</h1>
       <div className={styles.cursosList}>
-        {data.allDatoCmsCurso?.nodes?.map?.((curso) => (
+        {data.allPrismicCurso?.nodes?.map?.((curso) => (
           <CursoItem
-            key={curso.originalId}
-            id={curso.originalId}
-            name={curso.nombre}
-            imgUrl={curso.imagen.url}
+            key={curso.id}
+            id={curso.id}
+            name={curso.data.nombre?.text}
+            imgUrl={curso.data.imagen?.url}
           />
         ))}
       </div>
@@ -30,13 +30,17 @@ export default Docentes;
 
 export const query = graphql`
   query {
-    allDatoCmsCurso(sort: { fields: position }) {
+    allPrismicCurso {
       nodes {
-        nombre
-        originalId
-        imagen {
-          url(imgixParams: { w: "250", h: "250", fit: "min" })
+        data {
+          imagen {
+            url(imgixParams: { w: 250 })
+          }
+          nombre {
+            text
+          }
         }
+        id
       }
     }
   }
