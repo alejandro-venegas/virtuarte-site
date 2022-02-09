@@ -20,9 +20,9 @@ const HeaderNavigator = (props) => {
       name: "Docentes",
     },
     {
-      id: "/experiencias-musicales",
-      to: "/experiencias-musicales",
-      name: "Experiencias Musicales",
+      id: "/blog",
+      to: "/blog",
+      name: "Blog",
     },
     {
       id: "/paquetes",
