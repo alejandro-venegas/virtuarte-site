@@ -16,6 +16,7 @@ const ExperienciasMusicales = ({ data }) => {
       ...post.data,
       resumen: post.data.resumen?.text,
       id: post.id,
+      date: post.first_publication_date,
     };
     console.log(postData);
     return <BlogPost post={postData} />;
@@ -47,13 +48,15 @@ const ExperienciasMusicales = ({ data }) => {
 export default ExperienciasMusicales;
 export const query = graphql`
   query {
-    allPrismicPostDeBlog {
+    allPrismicPostDeBlog(
+      sort: { fields: first_publication_date, order: DESC }
+    ) {
       nodes {
         first_publication_date
         id
         data {
           portada {
-            url(imgixParams: { w: 300 })
+            url(imgixParams: { w: 350 })
           }
           titulo
           resumen {
