@@ -3,7 +3,6 @@
 
   * {
     text-align: left;
-    width: 100%;
   }
 
   h1 {
@@ -15,12 +14,20 @@
   }
 
   img {
-    width: 100%;
     max-width: 100%;
   }
 
-  iframe {
-    width: min(100%, 400px);
-    height: 200px;
+  .embed {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    iframe {
+      width: min(100%, 500px);
+      height: 300px;
+    }
+  }
+
+  .content-wrapper {
+    align-items: flex-start;
   }
 }

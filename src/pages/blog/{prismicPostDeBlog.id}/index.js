@@ -6,6 +6,7 @@ import ContentWrapper from "../../../components/shared/ContentWrapper/ContentWra
 import * as styles from "./Post.module.scss";
 import ParallaxTitle from "../../../components/shared/ParallaxTitle/ParallaxTitle";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Helmet } from "react-helmet";
 
 function Index({ data }) {
   const post = data.prismicPostDeBlog.data;
@@ -14,6 +15,9 @@ function Index({ data }) {
 
   return (
     <section className={styles.post}>
+      <Helmet>
+        <title>{post.titulo}</title>
+      </Helmet>
       <ParallaxTitle
         title={post.titulo}
         titleStyle={{ color: "white", fontSize: "50px" }}
@@ -28,7 +32,22 @@ function Index({ data }) {
         />
       </ParallaxTitle>
       <ContentWrapper className={styles.contentWrapper}>
-        <PrismicRichText field={post.contenido.richText} />
+        <PrismicRichText
+          field={post.contenido.richText}
+          components={{
+            embed: (props) => {
+              console.log(props);
+              return (
+                <div
+                  className={styles.embed}
+                  dangerouslySetInnerHTML={{
+                    __html: props.node?.oembed?.html,
+                  }}
+                />
+              );
+            },
+          }}
+        />
       </ContentWrapper>
     </section>
   );
