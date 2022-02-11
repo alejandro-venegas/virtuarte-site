@@ -1,0 +1,26 @@
+.post {
+  margin-top: 86px;
+
+  * {
+    text-align: left;
+    width: 100%;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  iframe {
+    width: min(100%, 400px);
+    height: 200px;
+  }
+}

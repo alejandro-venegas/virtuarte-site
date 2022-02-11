@@ -48,7 +48,6 @@ const HeaderNavigator = (props) => {
     const isActive =
       (!itemUrl && activeUrl === itemUrl) ||
       (itemUrl && activeUrl.includes(itemUrl));
-    console.log(activeUrl, itemUrl, isActive);
 
     return (
       <li key={link.to}>

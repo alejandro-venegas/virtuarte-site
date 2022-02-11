@@ -12,7 +12,9 @@ const isBlackHeader = (pathname) =>
   (pathname.includes("quienes-somos") &&
     !pathname.includes("proceso-educativo") &&
     !pathname.includes("experiencia-musical")) ||
-  pathname.includes("curso");
+  pathname.includes("curso") ||
+  pathname.match(/.*blog\/.+/g);
+
 const Header = (props) => {
   const [activeUrl, setActiveUrl] = useState("");
   const [linksColor, setLinksColor] = useState("white");
@@ -20,7 +22,7 @@ const Header = (props) => {
   const headerRef = useRef();
 
   const checkLocation = () => {
-    const pathname = window.location.pathname.replaceAll("/", "");
+    const pathname = window.location.pathname;
     setActiveUrl(pathname);
 
     if (isBlackHeader(pathname)) {

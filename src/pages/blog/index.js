@@ -19,7 +19,7 @@ const ExperienciasMusicales = ({ data }) => {
       date: post.first_publication_date,
     };
     console.log(postData);
-    return <BlogPost post={postData} />;
+    return <BlogPost key={postData.id} post={postData} />;
   });
 
   return (
