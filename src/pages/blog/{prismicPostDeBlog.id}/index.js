@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet";
 
 function Index({ data }) {
   const post = data.prismicPostDeBlog.data;
-  console.log(post);
+  const date = new Date(data.prismicPostDeBlog.first_publication_date);
   const image = getImage(post.portada.gatsbyImageData);
 
   return (
@@ -32,6 +32,16 @@ function Index({ data }) {
         />
       </ParallaxTitle>
       <ContentWrapper className={styles.contentWrapper}>
+        <time dateTime={date}>
+          Publicado el{" "}
+          {date.toLocaleDateString("es-CR", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "2-digit",
+          })}
+          .
+        </time>
         <PrismicRichText
           field={post.contenido.richText}
           components={{

@@ -1,3 +1,5 @@
+@use "src/styles/sizes";
+
 .posts-grid {
   width: 100%;
   margin: 4rem 0;
@@ -5,4 +7,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, min(350px, 100%));
   gap: 5rem;
+}
+
+@media only screen and (max-width: sizes.$laptop-breakpoint) {
+  .posts-grid {
+    justify-content: center;
+  }
 }

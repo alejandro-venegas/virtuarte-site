@@ -39,5 +39,12 @@
 
   .content-wrapper {
     align-items: flex-start;
+    time {
+      margin-left: auto;
+      margin-top: 2rem;
+    }
+    p {
+      text-align: justify;
+    }
   }
 }

@@ -39,6 +39,7 @@ const ParallaxTitle = (props) => {
       <h1 className={styles.title} style={props.titleStyle}>
         {props.title}
       </h1>
+      p
     </div>
   );
 };

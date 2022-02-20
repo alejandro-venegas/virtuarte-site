@@ -12,7 +12,7 @@ function BlogPost({ post }) {
           <div className={styles.titleContainer}>
             <h3>{titulo}</h3>
             {date && (
-              <time datetime={date}>
+              <time dateTime={date}>
                 {new Date(date).toLocaleDateString("es-CR", {
                   hour: "2-digit",
                   minute: "2-digit",
