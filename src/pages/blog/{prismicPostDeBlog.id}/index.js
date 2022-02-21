@@ -42,27 +42,7 @@ function Index({ data }) {
           })}
           .
         </time>
-        <PrismicRichText
-          field={post.contenido.richText}
-          components={{
-            image: (props) => {
-              console.log(props);
-              return (
-                <div className={styles.imageContainer}>
-                  <img src={props.node.url} alt={props.node.alt || "Image"} />
-                </div>
-              );
-            },
-            embed: (props) => (
-              <div
-                className={styles.embed}
-                dangerouslySetInnerHTML={{
-                  __html: props.node?.oembed?.html,
-                }}
-              />
-            ),
-          }}
-        />
+        <PrismicRichText field={post.contenido.richText} />
       </ContentWrapper>
     </section>
   );
