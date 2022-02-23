@@ -2,10 +2,15 @@ import React from "react";
 
 import ParallaxTitle from "../../components/shared/ParallaxTitle/ParallaxTitle";
 import { StaticImage } from "gatsby-plugin-image";
+import ContentWrapper from "../../components/shared/ContentWrapper/ContentWrapper";
+import { Helmet } from "react-helmet";
 
 const Paquetes = () => {
   return (
-    <div>
+    <section>
+      <Helmet>
+        <title>Paquetes</title>
+      </Helmet>
       <ParallaxTitle
         title={"Paquetes"}
         titleStyle={{ color: "white", fontSize: "85.3333px" }}
@@ -19,7 +24,12 @@ const Paquetes = () => {
           alt={"Hero"}
         />
       </ParallaxTitle>
-    </div>
+      <section>
+        <ContentWrapper>
+          <h2>¡Escoge el paquete de preferencia!</h2>
+        </ContentWrapper>
+      </section>
+    </section>
   );
 };
 
