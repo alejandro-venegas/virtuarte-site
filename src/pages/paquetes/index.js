@@ -4,8 +4,10 @@ import ParallaxTitle from "../../components/shared/ParallaxTitle/ParallaxTitle";
 import { StaticImage } from "gatsby-plugin-image";
 import ContentWrapper from "../../components/shared/ContentWrapper/ContentWrapper";
 import { Helmet } from "react-helmet";
+import { graphql } from "gatsby";
 
-const Paquetes = () => {
+const Paquetes = ({ data }) => {
+  console.log(data);
   return (
     <section>
       <Helmet>
@@ -34,3 +36,26 @@ const Paquetes = () => {
 };
 
 export default Paquetes;
+
+export const query = graphql`
+  query PaquetesQuery {
+    allPrismicPaquete {
+      nodes {
+        data {
+          imagen {
+            localFile {
+              internal {
+                content
+              }
+              absolutePath
+            }
+            url
+          }
+          titulo {
+            text
+          }
+        }
+      }
+    }
+  }
+`;
