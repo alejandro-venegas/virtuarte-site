@@ -1,0 +1,17 @@
+.paquete-wrapper {
+  height: 500px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+
+  .image {
+    width: 100%;
+    flex: 1;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

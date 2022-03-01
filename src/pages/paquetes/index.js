@@ -1,13 +1,16 @@
 import React from "react";
 
-import ParallaxTitle from "../../components/shared/ParallaxTitle/ParallaxTitle";
-import { StaticImage } from "gatsby-plugin-image";
-import ContentWrapper from "../../components/shared/ContentWrapper/ContentWrapper";
+import { getImage, StaticImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 
+import ParallaxTitle from "../../components/shared/ParallaxTitle/ParallaxTitle";
+import ContentWrapper from "../../components/shared/ContentWrapper/ContentWrapper";
+import * as styles from "./Paquetes.module.scss";
+import PaqueteItem from "../../components/paquetes/PaqueteItem";
+
 const Paquetes = ({ data }) => {
-  console.log(data);
+  const paquetes = data.allPrismicPaquete.nodes;
   return (
     <section>
       <Helmet>
@@ -29,6 +32,17 @@ const Paquetes = ({ data }) => {
       <section>
         <ContentWrapper>
           <h2>¡Escoge el paquete de preferencia!</h2>
+          <div className={styles.paquetesGrid}>
+            {paquetes.map((paquete) => {
+              const imagen = getImage(paquete.data?.imagen?.gatsbyImageData);
+              const titulo = paquete.data.titulo?.text;
+              const id = paquete.id;
+
+              return (
+                <PaqueteItem image={imagen} title={titulo} id={id} key={id} />
+              );
+            })}
+          </div>
         </ContentWrapper>
       </section>
     </section>
@@ -39,22 +53,17 @@ export default Paquetes;
 
 export const query = graphql`
   query PaquetesQuery {
-    allPrismicPaquete {
+    allPrismicPaquete(sort: { fields: first_publication_date }) {
       nodes {
         data {
           imagen {
-            localFile {
-              internal {
-                content
-              }
-              absolutePath
-            }
-            url
+            gatsbyImageData
           }
           titulo {
             text
           }
         }
+        id
       }
     }
   }
