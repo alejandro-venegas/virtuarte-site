@@ -17,7 +17,7 @@ function PaqueteItem({ title, image, id }) {
         imgStyle={{ objectFit: "contain" }}
       />
       <h3>{title}</h3>
-      <AnimLink className={styles.button} to={`/paquete/${id}`}>
+      <AnimLink className={styles.button} to={`/paquetes/${id}`}>
         <Button>Ver más</Button>
       </AnimLink>
     </article>

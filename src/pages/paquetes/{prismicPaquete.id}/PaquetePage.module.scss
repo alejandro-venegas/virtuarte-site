@@ -1,0 +1,17 @@
+.modulos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reminder-section {
+  background-color: var(--primaryColor);
+  padding: 2rem;
+  h2 {
+    margin: 1rem 0;
+  }
+  * {
+    color: white;
+    text-align: center;
+  }
+}

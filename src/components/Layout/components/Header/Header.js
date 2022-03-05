@@ -13,7 +13,8 @@ const isBlackHeader = (pathname) =>
     !pathname.includes("proceso-educativo") &&
     !pathname.includes("experiencia-musical")) ||
   pathname.includes("curso") ||
-  pathname.match(/.*blog\/.+/g);
+  pathname.match(/.*blog\/.+/g) ||
+  pathname.match(/.*paquetes\/.+/g);
 
 const Header = (props) => {
   const [activeUrl, setActiveUrl] = useState("");
