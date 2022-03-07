@@ -19,6 +19,7 @@ const Contactenos = () => {
         />
       </ParallaxTitle>
       <iframe
+        title="Contactenos"
         jsname="L5Fo6c"
         className="YMEQtf DnR2hf"
         sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-modals"
@@ -27,7 +28,7 @@ const Contactenos = () => {
         allowFullScreen=""
         frameBorder="0"
         style={{ width: "50%", height: "800px" }}
-      ></iframe>
+      />
     </section>
   );
 };

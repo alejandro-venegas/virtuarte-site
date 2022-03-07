@@ -15,7 +15,11 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
     "@loadable/component": "^5.15.0",
+    "@mui/icons-material": "^5.4.4",
+    "@mui/material": "^5.4.4",
     "@prismicio/client": "^6.2.0",
     "@prismicio/helpers": "^2.1.1",
     "@prismicio/react": "^2.0.6",

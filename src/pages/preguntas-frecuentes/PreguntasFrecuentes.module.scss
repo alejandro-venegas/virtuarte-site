@@ -1,0 +1,18 @@
+@use "src/styles/sizes";
+
+.preguntas-frecuentes-container {
+  width: 100%;
+  display: grid;
+  margin: 2rem 0;
+  row-gap: 2rem;
+  column-gap: 5%;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, min(350px, 100%));
+}
+
+@media screen and (min-width: sizes.$laptop-breakpoint) {
+  .preguntas-frecuentes-container {
+    column-gap: 20%;
+    grid-template-columns: repeat(auto-fill, 40%);
+  }
+}

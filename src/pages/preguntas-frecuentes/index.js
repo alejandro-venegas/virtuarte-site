@@ -1,11 +1,18 @@
 import React from "react";
 
-import ParallaxTitle from "../../components/shared/ParallaxTitle/ParallaxTitle";
 import { StaticImage } from "gatsby-plugin-image";
+import { graphql } from "gatsby";
 
-const PreguntasFrecuentes = () => {
+import ParallaxTitle from "../../components/shared/ParallaxTitle/ParallaxTitle";
+import ContentWrapper from "../../components/shared/ContentWrapper/ContentWrapper";
+import Pregunta from "../../components/preguntas-frecuentes/Pregunta";
+import * as styles from "./PreguntasFrecuentes.module.scss";
+
+const PreguntasFrecuentes = ({ data }) => {
+  const preguntas = data.prismicPreguntasFrecuentes.data.item;
+
   return (
-    <div>
+    <section>
       <ParallaxTitle
         src={"experiencias_musicales_hero.jpg"}
         height={"340px"}
@@ -20,8 +27,34 @@ const PreguntasFrecuentes = () => {
           alt={"Hero"}
         />
       </ParallaxTitle>
-    </div>
+      <ContentWrapper>
+        <div className={styles.preguntasFrecuentesContainer}>
+          {preguntas?.map?.((pregunta, index) => (
+            <Pregunta
+              key={index}
+              pregunta={pregunta.pregunta}
+              respuesta={pregunta.respuesta}
+            />
+          ))}
+        </div>
+      </ContentWrapper>
+    </section>
   );
 };
 
 export default PreguntasFrecuentes;
+
+export const query = graphql`
+  {
+    prismicPreguntasFrecuentes {
+      data {
+        item {
+          pregunta
+          respuesta {
+            richText
+          }
+        }
+      }
+    }
+  }
+`;
