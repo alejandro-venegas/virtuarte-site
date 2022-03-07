@@ -1,12 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import { PrismicRichText } from "@prismicio/react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Helmet } from "react-helmet";
+
 import ContentWrapper from "../../../components/shared/ContentWrapper/ContentWrapper";
 import * as styles from "./Post.module.scss";
 import ParallaxTitle from "../../../components/shared/ParallaxTitle/ParallaxTitle";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Helmet } from "react-helmet";
+import CustomPrismicRichText from "../../../components/shared/CustomPrismicRichText/CustomPrismicRichText";
 
 function Index({ data }) {
   const post = data.prismicPostDeBlog.data;
@@ -42,7 +43,7 @@ function Index({ data }) {
           })}
           .
         </time>
-        <PrismicRichText field={post.contenido.richText} />
+        <CustomPrismicRichText field={post.contenido.richText} />
       </ContentWrapper>
     </section>
   );

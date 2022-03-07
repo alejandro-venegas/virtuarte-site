@@ -1,11 +1,10 @@
 import React, { useRef, useState } from "react";
 
-import { PrismicRichText } from "@prismicio/react";
-
 import ExpandLessRoundedIcon from "@mui/icons-material/ExpandLessRounded";
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 
 import * as styles from "./Pregunte.module.scss";
+import CustomPrismicRichText from "../shared/CustomPrismicRichText/CustomPrismicRichText";
 
 function Pregunta({ pregunta, respuesta }) {
   const iconSettings = { fontSize: "large", color: "action" };
@@ -41,7 +40,7 @@ function Pregunta({ pregunta, respuesta }) {
         }}
       >
         <div style={{ padding: "0.1px" }} ref={respuestaContainerRef}>
-          <PrismicRichText field={respuesta.richText} />
+          <CustomPrismicRichText field={respuesta.richText} />
         </div>
       </div>
     </article>

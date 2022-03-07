@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import * as styles from "./Layout.module.scss";
 import { Helmet } from "react-helmet";
 import Footer from "./components/Footer/Footer";
-import { PrismicProvider, usePrismicClient } from "@prismicio/react";
+import { PrismicProvider } from "@prismicio/react";
 
 const Layout = (props) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,29 +21,7 @@ const Layout = (props) => {
       </Helmet>
       <div className={styles.scrollReference} ref={scrollReferenceRef} />
       <Header isScrolled={isScrolled} />
-      <main>
-        <PrismicProvider
-          richTextComponents={{
-            image: (props) => {
-              return (
-                <div className={styles.imageContainer}>
-                  <img src={props.node.url} alt={props.node.alt || "Image"} />
-                </div>
-              );
-            },
-            embed: (props) => (
-              <div
-                className={styles.embed}
-                dangerouslySetInnerHTML={{
-                  __html: props.node?.oembed?.html,
-                }}
-              />
-            ),
-          }}
-        >
-          {props.children}
-        </PrismicProvider>
-      </main>
+      <main>{props.children}</main>
       <Footer />
     </div>
   );

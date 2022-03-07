@@ -1,12 +1,12 @@
 import React from "react";
-import { PrismicRichText } from "@prismicio/react";
 import * as styles from "./ModalidadItem.module.scss";
+import CustomPrismicRichText from "../../../shared/CustomPrismicRichText/CustomPrismicRichText";
 
 function ModalidadItem({ titulo, contenido }) {
   return (
     <article className={styles.modalidadItem}>
       <h2>{titulo}</h2>
-      <PrismicRichText field={contenido} />
+      <CustomPrismicRichText field={contenido} />
     </article>
   );
 }

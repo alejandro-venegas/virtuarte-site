@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import * as styles from "./Docente.module.scss";
 import ContentWrapper from "../../../components/shared/ContentWrapper/ContentWrapper";
 import Button from "../../../components/shared/Button/Button";
-import { PrismicRichText } from "@prismicio/react";
+import CustomPrismicRichText from "../../../components/shared/CustomPrismicRichText/CustomPrismicRichText";
 
 const Docente = ({ data }) => {
   const docente = data.prismicDocente?.data;
@@ -47,15 +47,15 @@ const Docente = ({ data }) => {
         </div>
         <section className={styles.section}>
           <h3>Biografía:</h3>
-          <PrismicRichText field={biografia.richText} />
+          <CustomPrismicRichText field={biografia.richText} />
         </section>
         <section className={styles.section}>
           <h3>Experiencia laboral:</h3>
-          <PrismicRichText field={experienciaLaboral.richText} />
+          <CustomPrismicRichText field={experienciaLaboral.richText} />
         </section>
         <section className={styles.section}>
           <h3>Niveles que imparte:</h3>
-          <PrismicRichText field={nivelesQueImparte.richText} />
+          <CustomPrismicRichText field={nivelesQueImparte.richText} />
         </section>
       </ContentWrapper>
     </section>
