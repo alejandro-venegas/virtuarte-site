@@ -4,6 +4,7 @@ import * as styles from "./Layout.module.scss";
 import { Helmet } from "react-helmet";
 import Footer from "./components/Footer/Footer";
 import { PrismicProvider } from "@prismicio/react";
+import SEO from "../shared/SEO/SEO";
 
 const Layout = (props) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,9 +17,7 @@ const Layout = (props) => {
   }, []);
   return (
     <div className={styles.container}>
-      <Helmet>
-        <title>Virtuarte</title>
-      </Helmet>
+      <SEO />
       <div className={styles.scrollReference} ref={scrollReferenceRef} />
       <Header isScrolled={isScrolled} />
       <main>{props.children}</main>

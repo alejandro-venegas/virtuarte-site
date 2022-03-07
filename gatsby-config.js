@@ -3,8 +3,11 @@ require("dotenv").config({
 });
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "Virtuartecr",
+    siteUrl: "https://wwww.virtuartecr.com",
+    title: "Virtuarte",
+    description:
+      "Virtuarte es una oportunidad para acceder de manera virtual al aprendizaje de la música. No solamente desde un referente meramente académico, sino desde las distintas virtudes que conforman a cada persona; buscando la manera más eficaz de aprender mediante herramientas digitales.",
+    image: "/logo.png",
   },
   plugins: [
     "gatsby-plugin-sass",
