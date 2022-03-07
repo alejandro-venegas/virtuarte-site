@@ -7,7 +7,8 @@ module.exports = {
     title: "Virtuarte",
     description:
       "Virtuarte es una oportunidad para acceder de manera virtual al aprendizaje de la música. No solamente desde un referente meramente académico, sino desde las distintas virtudes que conforman a cada persona; buscando la manera más eficaz de aprender mediante herramientas digitales.",
-    image: "/logo.png",
+    image:
+      "https://lh3.googleusercontent.com/5fxDGdjozewMqNDgvc1ufsebvrO-f5L29HpfFfQok676dFrsUj1we1fhcx8_jp4f3ExJ3oIOs6HMYSP9ndwtC2Q=w16383",
   },
   plugins: [
     "gatsby-plugin-sass",
