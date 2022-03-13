@@ -36,7 +36,11 @@ const Curso = ({ data }) => {
           ¡Conocé nuestros docentes de {curso.toLowerCase()}!
         </h2>
         {docentes.map((docenteDoc) => {
-          const docenteData = docenteDoc.docente.document?.data;
+          const docenteData = docenteDoc.docente?.document?.data;
+
+          if (!docenteData) {
+            return <div></div>;
+          }
           const docente = {
             nombre: docenteData.nombres?.text,
             apellidos: docenteData.apellidos?.text,
