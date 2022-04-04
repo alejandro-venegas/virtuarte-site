@@ -6,6 +6,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import HeaderNavigator from "./components/HeaderNavigator";
 import { Spin } from "hamburger-react";
 import { globalHistory } from "@reach/router";
+import AnimLink from "../../../shared/AnimLink/AnimLink";
 
 const isBlackHeader = (pathname) =>
   pathname.includes("docentes") ||
@@ -62,22 +63,24 @@ const Header = (props) => {
           }
         />
       </div>
-      <StaticImage
-        width={50}
-        src="../../../../images/logo.png"
-        objectFit={"contain"}
-        imgStyle={{ opacity: 1, transition: "none" }}
-        loading={"eager"}
-        style={{
-          margin: "10px 20px",
-          overflow: "hidden",
-          borderRadius: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-        alt="Logo"
-      />
+      <AnimLink to="/">
+        <StaticImage
+          width={50}
+          src="../../../../images/logo.png"
+          objectFit={"contain"}
+          imgStyle={{ opacity: 1, transition: "none" }}
+          loading={"eager"}
+          style={{
+            margin: "10px 20px",
+            overflow: "hidden",
+            borderRadius: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          alt="Logo"
+        />
+      </AnimLink>
       <div
         aria-hidden={true}
         onClick={() => setIsMenuToggled(false)}
