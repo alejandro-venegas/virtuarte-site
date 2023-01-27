@@ -31,12 +31,6 @@ const ProcesoEducativo = () => {
       description:
         "Se abrirán espacios para compartir conocimiento junto a maestros (as) nacionales e internacionales.",
     },
-    {
-      image: <BemolSvg />,
-      title: "Concursos",
-      description:
-        "Es importante tener claro el objetivo, y de esa manera estimular la motivación para lograr metas a corto/ largo plazo. Por ello, el/la docente facilitará herramientas sobre cómo afrontar estos retos en el futuro.",
-    },
   ];
 
   return (
