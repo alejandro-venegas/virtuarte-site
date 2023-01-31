@@ -13,7 +13,7 @@ const ParallaxTitle = (props) => {
         "style",
         `transform: translate3d(0, ${scroll * 0.5}px, 0)`
       );
-    else img = document.querySelector(`.${styles.parallaxImageContainer}`);
+    else img = document.querySelector(`.parallax-title`);
 
     requestId = requestAnimationFrame(parallaxAnim);
   }
@@ -31,7 +31,9 @@ const ParallaxTitle = (props) => {
 
   return (
     <div className={styles.container} style={{ height: props.height }}>
-      <div className={styles.parallaxImageContainer}>{props.children}</div>
+      <div className={styles.parallaxImageContainer + " " + "parallax-title"}>
+        {props.children}
+      </div>
       <div
         className={styles.overlay}
         style={{ backgroundColor: props.overlayColor }}
