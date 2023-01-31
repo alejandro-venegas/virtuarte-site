@@ -6,7 +6,6 @@ import ContentWrapper from "../../../components/shared/ContentWrapper/ContentWra
 import * as styles from "./PaquetePage.module.scss";
 import ModalidadItem from "../../../components/paquetes/PaquetePage/ModalidadItem";
 import Button from "../../../components/shared/Button/Button";
-import AnimLink from "../../../components/shared/AnimLink/AnimLink";
 
 function PaquetePage({ data }) {
   const paquete = data.prismicPaquete.data;

@@ -1,4 +1,4 @@
-import React, { createRef, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import * as styles from "./ParallaxTitle.module.scss";
 const ParallaxTitle = (props) => {

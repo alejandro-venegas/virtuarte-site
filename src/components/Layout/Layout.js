@@ -1,9 +1,7 @@
 import React, { createRef, useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import * as styles from "./Layout.module.scss";
-import { Helmet } from "react-helmet";
 import Footer from "./components/Footer/Footer";
-import { PrismicProvider } from "@prismicio/react";
 import SEO from "../shared/SEO/SEO";
 
 const Layout = (props) => {
