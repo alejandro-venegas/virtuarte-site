@@ -1,6 +1,7 @@
 import * as styles from "./HeaderNavigator.module.scss";
 import AnimLink from "../../../../shared/AnimLink/AnimLink";
 import React from "react";
+import Button from "../../../../shared/Button/Button";
 
 const HeaderNavigator = (props) => {
   const linkObjects = [
@@ -68,7 +69,14 @@ const HeaderNavigator = (props) => {
       className={`${styles.nav} ${props.isToggled && styles.isToggled}`}
       style={{ paddingTop: props.topPadding + "px" }}
     >
-      <ul className={styles.list}>{linksElements}</ul>
+      <ul className={styles.list}>
+        {linksElements}{" "}
+        <li>
+          <a href="#newsletter">
+            <Button className={styles.subscribeButton}>Subscribete</Button>
+          </a>
+        </li>
+      </ul>
     </nav>
   );
 };

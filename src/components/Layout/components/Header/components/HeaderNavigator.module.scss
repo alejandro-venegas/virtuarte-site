@@ -10,8 +10,6 @@
   transition: transform 0.2s ease-in 0.2s;
   &.isToggled {
     transform: translate3d(0, 0, 0);
-    .list {
-    }
   }
   .list {
     margin: 0;
@@ -19,6 +17,7 @@
     list-style: none;
     display: flex;
     flex-direction: column;
+    align-items: center;
     li {
       margin: 1rem 2rem;
       width: max-content;
@@ -31,7 +30,12 @@
           font-weight: 400;
         }
       }
+
     }
+
+        .subscribeButton {
+          margin: 0;
+        }
   }
 }
 @media screen and (max-width: sizes.$laptop-breakpoint) {
@@ -65,6 +69,8 @@
     }
   }
 }
+
+
 @media screen and (min-width: sizes.$laptop-breakpoint) {
   .nav {
     position: static;
