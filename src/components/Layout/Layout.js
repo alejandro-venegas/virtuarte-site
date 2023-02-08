@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import * as styles from "./Layout.module.scss";
 import Footer from "./components/Footer/Footer";
 import SEO from "../shared/SEO/SEO";
+import { NewsletterModal } from "./components/NewsletterModal/NewsletterModal";
 
 const Layout = (props) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,6 +21,7 @@ const Layout = (props) => {
       <Header isScrolled={isScrolled} />
       <main>{props.children}</main>
       <Footer />
+      <NewsletterModal />
     </div>
   );
 };
