@@ -7,11 +7,12 @@ const submitUrl =
 
 export const NewsletterModal = (props) => {
   const [hasError, setHasError] = useState(false);
+  const [wasSent, setWasSent] = useState(false);
 
   const emailRef = useRef();
   const formRef = useRef();
 
-  const onClickHandler = (event) => {
+  const onClickHandler = async (event) => {
     event.preventDefault();
 
     if (!emailRef.current || !formRef.current) {
@@ -25,7 +26,9 @@ export const NewsletterModal = (props) => {
       return;
     }
 
-    fetch(submitUrl, {
+    setWasSent(true);
+
+    await fetch(submitUrl, {
       method: "POST",
       body: new URLSearchParams(new FormData(formRef.current)),
       mode: "no-cors",
@@ -34,40 +37,64 @@ export const NewsletterModal = (props) => {
 
   return (
     <div id="newsletter">
-      <div className={styles.innerContainer}>
-        <CloseButton />
-        <h1 className="h2">Subscríbete</h1>
-        <p>
-          Subscríbete para mantenerte al día con nuestras activades y noticias
-        </p>
-        <form
-          action={submitUrl}
-          method="post"
-          target="_blank"
-          className={styles.form}
-          ref={formRef}
-        >
-          <div className={styles.inputGroup}>
-            <input
-              required
-              type="email"
-              placeholder="Email"
-              ref={emailRef}
-              id="email"
-              name="EMAIL"
-              className={`${styles.input} ${hasError && styles.invalid}`}
-            />
-            {hasError && (
-              <span className={styles.error}>
-                Por favor, ingresa una dirección de correo valida
-              </span>
-            )}
-          </div>
+      <div
+        className={styles.innerContainer + " " + (wasSent && styles.wasSent)}
+      >
+        <CloseButton
+          onClick={() => {
+            setHasError(false);
+            setWasSent(false);
 
-          <Button onClick={onClickHandler} className={styles.button}>
-            Enviar
-          </Button>
-        </form>
+            if (emailRef.current) {
+              emailRef.current.value = "";
+            }
+          }}
+        />
+        {!wasSent && (
+          <>
+            <h1 className="h2">Subscríbete</h1>
+            <p>
+              Subscríbete para mantenerte al día con nuestras activades y
+              noticias
+            </p>
+            <form
+              action={submitUrl}
+              method="post"
+              target="_blank"
+              className={styles.form}
+              ref={formRef}
+            >
+              <div className={styles.inputGroup}>
+                <input
+                  required
+                  type="email"
+                  placeholder="Email"
+                  ref={emailRef}
+                  id="email"
+                  name="EMAIL"
+                  className={`${styles.input} ${hasError && styles.invalid}`}
+                />
+                {hasError && (
+                  <span className={styles.error}>
+                    Por favor, ingresa una dirección de correo valida
+                  </span>
+                )}
+              </div>
+
+              <Button onClick={onClickHandler} className={styles.button}>
+                Enviar
+              </Button>
+            </form>
+          </>
+        )}
+        {wasSent && (
+          <>
+            <h1 className="h2">¡Gracias por subscribirte!</h1>
+            <p>
+              Pronto te estaremos informando de nuestras actividades y noticias
+            </p>
+          </>
+        )}
       </div>
     </div>
   );
@@ -81,9 +108,9 @@ const validateEmail = (email) => {
     );
 };
 
-const CloseButton = () => {
+const CloseButton = ({ onClick }) => {
   return (
-    <a href="#" className={styles.closeContainer}>
+    <a href="#" onClick={onClick} className={styles.closeContainer}>
       <div className={styles.stick + " " + styles.leftright}></div>
       <div className={styles.stick + " " + styles.rightleft}></div>
     </a>
