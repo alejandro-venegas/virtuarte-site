@@ -39,6 +39,10 @@
     height: 500px;
     transition: max-height 500ms ease;
 
+    &.isLoading{
+        max-height: 144px;
+    }
+
     &.wasSent{
         max-height: 177.17px;
     }
