@@ -12,7 +12,7 @@ export default async function formHandler(req, res) {
 
   try {
     const memberInfo = await getMemberInfo(email);
-    if (memberInfo.status === "subscribed") {
+    if (memberInfo?.status === "subscribed") {
       return res.status(400).json({ title: "Member Exists" });
     }
 
@@ -28,6 +28,7 @@ export default async function formHandler(req, res) {
 
     return res.json(response);
   } catch (error) {
+    console.log(error);
     return res.status(500).json(error);
   }
 }
