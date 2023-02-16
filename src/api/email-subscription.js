@@ -28,9 +28,7 @@ export default async function formHandler(req, res) {
 
     return res.json(response);
   } catch (error) {
-    const data = JSON.parse(error.response.text);
-    console.log(data);
-    return res.status(400).json(data);
+    return res.status(500).json(error);
   }
 }
 
