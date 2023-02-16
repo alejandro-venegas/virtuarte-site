@@ -7,11 +7,10 @@ const submitUrl =
   "https://virtuartecr.us21.list-manage.com/subscribe/post?u=849b1b091f0855b23091c5e65&amp;id=c9c3135bc9&amp;f_id=00c9ebe1f0";
 
 export const NewsletterModal = (props) => {
-  const [hasError, setHasError] = useState(
-    "Este correo ya se encuentra subscrito"
-  );
+  const [hasError, setHasError] = useState(null);
   const [wasSent, setWasSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [contentHeight, setContentHeight] = useState(212);
 
   const emailRef = useRef();
   const formRef = useRef();
@@ -61,66 +60,68 @@ export const NewsletterModal = (props) => {
   return (
     <div id="newsletter">
       <div
-        className={
-          styles.innerContainer +
-          " " +
-          (wasSent && styles.wasSent) +
-          " " +
-          (isLoading && styles.isLoading)
-        }
+        className={styles.innerContainer}
+        style={{ maxHeight: `calc(${contentHeight}px + 4rem)` }}
       >
-        <CloseButton
-          onClick={() => {
-            setHasError(false);
-            setWasSent(false);
-
-            if (emailRef.current) {
-              emailRef.current.value = "";
-            }
+        <div
+          ref={(element) => {
+            setContentHeight(element?.clientHeight || 0);
           }}
-        />
-        {!wasSent && !isLoading && (
-          <>
-            <h1 className="h2">Subscríbete</h1>
-            <p>
-              Subscríbete para mantenerte al día con nuestras activades y
-              noticias
-            </p>
-            <form
-              action={submitUrl}
-              method="post"
-              target="_blank"
-              className={styles.form}
-              ref={formRef}
-            >
-              <div className={styles.inputGroup}>
-                <input
-                  required
-                  type="email"
-                  placeholder="Email"
-                  ref={emailRef}
-                  id="email"
-                  name="EMAIL"
-                  className={`${styles.input} ${hasError && styles.invalid}`}
-                />
-                {hasError && <span className={styles.error}>{hasError}</span>}
-              </div>
+        >
+          <CloseButton
+            onClick={() => {
+              setHasError(false);
+              setWasSent(false);
 
-              <Button onClick={onClickHandler} className={styles.button}>
-                Enviar
-              </Button>
-            </form>
-          </>
-        )}
-        {isLoading && <Spinner />}
-        {wasSent && (
-          <>
-            <h1 className="h2">¡Gracias por subscribirte!</h1>
-            <p>
-              Pronto te estaremos informando de nuestras actividades y noticias
-            </p>
-          </>
-        )}
+              if (emailRef.current) {
+                emailRef.current.value = "";
+              }
+            }}
+          />
+          {!wasSent && !isLoading && (
+            <>
+              <h1 className="h2">Subscríbete</h1>
+              <p>
+                Subscríbete para mantenerte al día con nuestras actividades y
+                noticias
+              </p>
+              <form
+                action={submitUrl}
+                method="post"
+                target="_blank"
+                className={styles.form}
+                ref={formRef}
+              >
+                <div className={styles.inputGroup}>
+                  <input
+                    required
+                    type="email"
+                    placeholder="Email"
+                    ref={emailRef}
+                    id="email"
+                    name="EMAIL"
+                    className={`${styles.input} ${hasError && styles.invalid}`}
+                  />
+                  {hasError && <span className={styles.error}>{hasError}</span>}
+                </div>
+
+                <Button onClick={onClickHandler} className={styles.button}>
+                  Enviar
+                </Button>
+              </form>
+            </>
+          )}
+          {isLoading && <Spinner />}
+          {wasSent && (
+            <>
+              <h1 className="h2">¡Gracias por subscribirte!</h1>
+              <p>
+                Pronto te estaremos informando de nuestras actividades y
+                noticias
+              </p>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
