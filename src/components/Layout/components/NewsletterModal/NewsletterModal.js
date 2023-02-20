@@ -4,7 +4,7 @@ import { Spinner } from "../../../shared/Spinner/Spinner";
 import * as styles from "./NewsletterModal.module.scss";
 
 const submitUrl =
-  "https://virtuartecr.us21.list-manage.com/subscribe/post?u=849b1b091f0855b23091c5e65&amp;id=c9c3135bc9&amp;f_id=00c9ebe1f0";
+  "https://assets.mailerlite.com/jsonp/334139/forms/80489490612749970/subscribe";
 
 export const NewsletterModal = (props) => {
   const [hasError, setHasError] = useState(null);
@@ -44,7 +44,7 @@ export const NewsletterModal = (props) => {
     setIsLoading(false);
 
     if (!response.ok) {
-      if (data.title === "Member Exists") {
+      if (data === "Member Exists") {
         setHasError("Este correo ya se encuentra subscrito");
         return;
       }
@@ -99,7 +99,7 @@ export const NewsletterModal = (props) => {
                     placeholder="Email"
                     ref={emailRef}
                     id="email"
-                    name="EMAIL"
+                    name="fields[email]"
                     className={`${styles.input} ${hasError && styles.invalid}`}
                   />
                   {hasError && <span className={styles.error}>{hasError}</span>}
@@ -116,8 +116,8 @@ export const NewsletterModal = (props) => {
             <>
               <h1 className="h2">¡Gracias por subscribirte!</h1>
               <p>
-                Pronto te estaremos informando de nuestras actividades y
-                noticias
+                Pronto te llegará un correo de bienvenida (por favor, revisa la
+                bandeja de spam)
               </p>
             </>
           )}
