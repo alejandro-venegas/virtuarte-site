@@ -73,7 +73,7 @@ const HeaderNavigator = (props) => {
         {linksElements}{" "}
         <li>
           <a href="#newsletter">
-            <Button className={styles.subscribeButton}>Subscribete</Button>
+            <Button className={styles.subscribeButton}>Suscríbete</Button>
           </a>
         </li>
       </ul>

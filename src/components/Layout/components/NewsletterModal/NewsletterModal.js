@@ -80,9 +80,9 @@ export const NewsletterModal = (props) => {
           />
           {!wasSent && !isLoading && (
             <>
-              <h1 className="h2">Subscríbete</h1>
+              <h1 className="h2">Suscríbete</h1>
               <p>
-                Subscríbete para mantenerte al día con nuestras actividades y
+                Suscríbete para mantenerte al día con nuestras actividades y
                 noticias
               </p>
               <form
