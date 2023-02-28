@@ -114,7 +114,7 @@ export const NewsletterModal = (props) => {
           {isLoading && <Spinner />}
           {wasSent && (
             <>
-              <h1 className="h2">¡Gracias por subscribirte!</h1>
+              <h1 className="h2">¡Gracias por suscribirte!</h1>
               <p>
                 Pronto te llegará un correo de bienvenida (por favor, revisa la
                 bandeja de spam)
