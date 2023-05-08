@@ -69,34 +69,31 @@ const IndexPage = () => {
       </ParallaxTitle>
       <ContentWrapper>
         <span className={"h2"}>¡En crecimiento continuo!</span>
-        <div className={styles.coursesContainer}>
-          <section>
-            <h2>Clases de piano y canto virtuales (+6 años)</h2>
-            <p>
-              Accede desde cualquier lugar utilizando nuestra plataforma
-              virtual. Recibe clases de nivel principiante, intermedio y/o
-              avanzado; así como acceso a videos, juegos, actividades y demás
-              materiales para facilitar el aprendizaje. Dirigido a todas las
-              edades.
-            </p>
-          </section>
-
-          <section>
-            <h2>Clase de muestra gratuita</h2>
-            <p>
-              Recibe una{" "}
-              <a
-                href="https://httpssitesgooglecomviewvirtuartecrinicio.simplybook.me/v2/"
-                target={"_blank"}
-                rel={"noreferrer"}
-              >
-                clase de muestra gratuita
-              </a>{" "}
-              con el/la docente de preferencia (donde conocerás los programas,
-              métodos, dinámicas, entre otras cosas).
-            </p>
-          </section>
-        </div>
+        <section className={styles.coursesContainer}>
+          <h2>
+            Clases de piano, canto y guitarra virtuales <br /> (+6 años)
+          </h2>
+          <p>
+            Accede desde cualquier lugar utilizando nuestra plataforma
+            virtual. Recibe clases de nivel principiante, intermedio y/o
+            avanzado; así como acceso a videos, juegos, actividades y demás
+            materiales para facilitar el aprendizaje. Dirigido a todas las
+            edades.
+          </p>
+          <h2>Clase de muestra gratuita</h2>
+          <p>
+            Recibe una{" "}
+            <a
+              href="https://httpssitesgooglecomviewvirtuartecrinicio.simplybook.me/v2/"
+              target={"_blank"}
+              rel={"noreferrer"}
+            >
+              clase de muestra gratuita
+            </a>{" "}
+            con el/la docente de preferencia (donde conocerás los programas,
+            métodos, dinámicas, entre otras cosas).
+          </p>
+        </section>
         <div style={{ margin: "3rem" }}>
           <StaticImage
             src={"../images/computer_logo.png"}
