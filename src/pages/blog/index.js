@@ -9,8 +9,6 @@ import ContentWrapper from "../../components/shared/ContentWrapper/ContentWrappe
 const ExperienciasMusicales = ({ data }) => {
   const posts = data.allPrismicPostDeBlog.nodes;
 
-  console.log(posts);
-
   const blogPostsElements = posts.map((post) => {
     const postData = {
       ...post.data,

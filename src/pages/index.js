@@ -13,42 +13,49 @@ import aprendeImg from "../images/benefits/aprende.svg";
 import educacionImg from "../images/benefits/educacion.svg";
 import AnimLink from "../components/shared/AnimLink/AnimLink";
 import Button from "../components/shared/Button/Button";
-const IndexPage = () => {
-  const benefits = [
-    {
-      img: clickImg,
-      alt: "Un solo click",
-      description: "Accede desde cualquier lugar con tan solo un click.",
-    },
-    {
-      img: horarioImg,
-      alt: "Horario",
-      description: "Escoge el horario y docente de preferencia.",
-    },
-    {
-      img: programasImg,
+import TestimonioItem from "../components/index/TestimoniosCarousel/TestimonioItem";
+import { graphql } from "gatsby";
+import { TestimoniosCarousel } from "../components/index/TestimoniosCarousel/TestimoniosCarousel";
 
-      alt: "Programas adaptados",
-      description: "Programas adaptados a sus objetivos.",
-    },
-    {
-      img: juegosImg,
-      alt: "Actividades",
-      description:
-        "Acceso a videos, juegos, actividades y más en nuestra plataforma virtual.",
-    },
-    {
-      img: aprendeImg,
+const benefits = [
+  {
+    img: clickImg,
+    alt: "Un solo click",
+    description: "Accede desde cualquier lugar con tan solo un click.",
+  },
+  {
+    img: horarioImg,
+    alt: "Horario",
+    description: "Escoge el horario y docente de preferencia.",
+  },
+  {
+    img: programasImg,
 
-      alt: "Aprende",
-      description: "Aprende disfrutando.",
-    },
-    {
-      img: educacionImg,
-      alt: "Integral",
-      description: "Educación integral y positiva.",
-    },
-  ];
+    alt: "Programas adaptados",
+    description: "Programas adaptados a sus objetivos.",
+  },
+  {
+    img: juegosImg,
+    alt: "Actividades",
+    description:
+      "Acceso a videos, juegos, actividades y más en nuestra plataforma virtual.",
+  },
+  {
+    img: aprendeImg,
+
+    alt: "Aprende",
+    description: "Aprende disfrutando.",
+  },
+  {
+    img: educacionImg,
+    alt: "Integral",
+    description: "Educación integral y positiva.",
+  },
+];
+
+const IndexPage = ({ data }) => {
+  const testimonios = data.allPrismicTestimonio.nodes;
+  
   return (
     <section>
       <ParallaxTitle
@@ -74,11 +81,10 @@ const IndexPage = () => {
             Clases de piano, canto y guitarra virtuales <br /> (+6 años)
           </h2>
           <p>
-            Accede desde cualquier lugar utilizando nuestra plataforma
-            virtual. Recibe clases de nivel principiante, intermedio y/o
-            avanzado; así como acceso a videos, juegos, actividades y demás
-            materiales para facilitar el aprendizaje. Dirigido a todas las
-            edades.
+            Accede desde cualquier lugar utilizando nuestra plataforma virtual.
+            Recibe clases de nivel principiante, intermedio y/o avanzado; así
+            como acceso a videos, juegos, actividades y demás materiales para
+            facilitar el aprendizaje. Dirigido a todas las edades.
           </p>
           <h2>Clase de muestra gratuita</h2>
           <p>
@@ -129,6 +135,14 @@ const IndexPage = () => {
           </AnimLink>
         </section>
       </ContentWrapper>
+      {testimonios.length > 0 && (
+        <section style={{ marginTop: "1rem" }}>
+          <ContentWrapper>
+            <h2>Testimonios</h2>
+            <TestimoniosCarousel testimonios={testimonios} />
+          </ContentWrapper>
+        </section>
+      )}
       <section>
         <div className={styles.coloredBackground}>
           <ContentWrapper>
@@ -151,3 +165,23 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export const query = graphql`
+  {
+    allPrismicTestimonio(sort: { fields: first_publication_date }) {
+      nodes {
+        data {
+          nombre {
+            text
+          }
+          rol {
+            text
+          }
+          texto {
+            text
+          }
+        }
+      }
+    }
+  }
+`;

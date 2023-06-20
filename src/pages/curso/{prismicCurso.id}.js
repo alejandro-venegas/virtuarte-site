@@ -10,7 +10,7 @@ import Index from "../../components/curso/DocenteItem";
 const Curso = ({ data }) => {
   const curso = data.prismicCurso?.data?.nombre?.text;
   const docentes = data.prismicCurso?.data?.docentes;
-  console.log(data);
+  
   return (
     <section>
       <Helmet>

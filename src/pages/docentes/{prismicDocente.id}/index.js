@@ -16,7 +16,7 @@ const Docente = ({ data }) => {
   const experienciaLaboral = docente.experiencia_laboral;
   const video = docente.video;
 
-  console.log(data);
+  
   return (
     <section style={{ marginTop: "100px" }}>
       <Helmet>

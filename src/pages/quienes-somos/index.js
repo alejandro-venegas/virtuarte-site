@@ -7,7 +7,6 @@ import ContentWrapper from "../../components/shared/ContentWrapper/ContentWrappe
 import procesoEducativoImg from "../../images/quienes-somos/proceso_educativo.svg";
 import experienciaMusicalImg from "../../images/quienes-somos/experiencia_musical.svg";
 import AnimLink from "../../components/shared/AnimLink/AnimLink";
-import TestimonioItem from "../../components/preguntas-frecuentes/quienes-somos/TestimonioItem";
 
 const QuienesSomos = () => {
   return (
@@ -82,12 +81,6 @@ const QuienesSomos = () => {
               <p className={`h3 ${styles.h3}`}>Experiencia Musical</p>
             </AnimLink>
           </div>
-        </ContentWrapper>
-      </section>
-      <section>
-        <ContentWrapper>
-          <h2>Testimonios</h2>
-          <TestimonioItem nombre={"Alejandro Venegas"} rol={"Estudiante de Oboe"} texto={"Los profesores de esta academia siempre han velado y preocupado por ensenarme de la mejor manera, con mucho amor"} />
         </ContentWrapper>
       </section>
     </section>

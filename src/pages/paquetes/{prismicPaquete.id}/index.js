@@ -9,7 +9,7 @@ import Button from "../../../components/shared/Button/Button";
 
 function PaquetePage({ data }) {
   const paquete = data.prismicPaquete.data;
-  console.log(paquete);
+  
   const titulo = paquete.titulo.text;
   return (
     <section style={{ marginTop: "100px" }}>
