@@ -12,7 +12,7 @@ export const TestimoniosCarousel = ({ testimonios }) => {
   const [testimoniosItems, setTestimoniosItems] = useState([]);
 
   const func = useCallback(() => {
-    const maxItems = Math.floor(window.innerWidth / 350) || 1;
+    const maxItems = Math.min(Math.floor(window.innerWidth / 350) || 1, 3);
 
     const data = testimonios.reduce((resultArray, item, index) => {
       const chunkIndex = Math.floor(index / maxItems);
