@@ -55,7 +55,7 @@ const benefits = [
 
 const IndexPage = ({ data }) => {
   const testimonios = data.allPrismicTestimonio.nodes;
-  
+
   return (
     <section>
       <ParallaxTitle
@@ -121,6 +121,14 @@ const IndexPage = ({ data }) => {
             ))}
           </div>
         </section>
+        {testimonios.length > 0 && (
+          <section style={{ marginTop: "1rem" }}>
+            <ContentWrapper>
+              <h2>Testimonios</h2>
+              <TestimoniosCarousel testimonios={testimonios} />
+            </ContentWrapper>
+          </section>
+        )}
         <section>
           <h2>Variedad de paquetes</h2>
           <p style={{ maxWidth: "750px", textAlign: "center" }}>
@@ -135,14 +143,6 @@ const IndexPage = ({ data }) => {
           </AnimLink>
         </section>
       </ContentWrapper>
-      {testimonios.length > 0 && (
-        <section style={{ marginTop: "1rem" }}>
-          <ContentWrapper>
-            <h2>Testimonios</h2>
-            <TestimoniosCarousel testimonios={testimonios} />
-          </ContentWrapper>
-        </section>
-      )}
       <section>
         <div className={styles.coloredBackground}>
           <ContentWrapper>
