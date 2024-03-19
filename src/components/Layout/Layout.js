@@ -17,6 +17,12 @@ const Layout = (props) => {
   return (
     <div className={styles.container}>
       <SEO />
+      <script
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="8a86c443-b63c-4f92-ae5b-cf9ccccb0964";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`,
+        }}
+      ></script>
       <div className={styles.scrollReference} ref={scrollReferenceRef} />
       <Header isScrolled={isScrolled} />
       <main>{props.children}</main>
