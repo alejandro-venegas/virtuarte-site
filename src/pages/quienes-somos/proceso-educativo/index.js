@@ -41,7 +41,7 @@ const ProcesoEducativo = () => {
       image: <SemicorcheaSvg />,
       title: "Disponibilidad",
       description:
-        "En la medida de lo posible, el/la docente respondará sus consultas extra clases",
+        "En la medida de lo posible, el/la docente responderá sus consultas extra clases",
     },
     {
       image: <BemolSvg />,
