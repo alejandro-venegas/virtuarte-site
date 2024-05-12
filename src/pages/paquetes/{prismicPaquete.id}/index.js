@@ -6,6 +6,7 @@ import ContentWrapper from "../../../components/shared/ContentWrapper/ContentWra
 import * as styles from "./PaquetePage.module.scss";
 import ModalidadItem from "../../../components/paquetes/PaquetePage/ModalidadItem";
 import Button from "../../../components/shared/Button/Button";
+import ReservarAhoraButton from "../../../components/shared/ReservarAhoraButton/ReservarAhoraButton";
 
 function PaquetePage({ data }) {
   const paquete = data.prismicPaquete.data;
@@ -33,7 +34,7 @@ function PaquetePage({ data }) {
           style={{ width: "360px", margin: "2rem 0" }}
           href="https://httpssitesgooglecomviewvirtuartecrinicio.simplybook.me/v2/"
         >
-          <Button>Reservar Ahora</Button>
+          <ReservarAhoraButton />
         </a>
       </ContentWrapper>
       <section className={styles.reminderSection}>

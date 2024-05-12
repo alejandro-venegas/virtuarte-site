@@ -5,6 +5,7 @@ import * as styles from "./Docente.module.scss";
 import ContentWrapper from "../../../components/shared/ContentWrapper/ContentWrapper";
 import Button from "../../../components/shared/Button/Button";
 import CustomPrismicRichText from "../../../components/shared/CustomPrismicRichText/CustomPrismicRichText";
+import ReservarAhoraButton from "../../../components/shared/ReservarAhoraButton/ReservarAhoraButton";
 
 const Docente = ({ data }) => {
   const docente = data.prismicDocente?.data;
@@ -40,9 +41,7 @@ const Docente = ({ data }) => {
             <h3 style={{ textAlign: "center" }}>
               Reservá tu clase de muestra gratuita
             </h3>
-            <a href="https://httpssitesgooglecomviewvirtuartecrinicio.simplybook.me/v2/">
-              <Button>Reservar ahora</Button>
-            </a>
+            <ReservarAhoraButton/>
           </div>
         </div>
         <section className={styles.section}>

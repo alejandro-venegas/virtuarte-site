@@ -16,6 +16,7 @@ import Button from "../components/shared/Button/Button";
 import TestimonioItem from "../components/index/TestimoniosCarousel/TestimonioItem";
 import { graphql } from "gatsby";
 import { TestimoniosCarousel } from "../components/index/TestimoniosCarousel/TestimoniosCarousel";
+import ReservarAhoraButton from "../components/shared/ReservarAhoraButton/ReservarAhoraButton";
 
 const benefits = [
   {
@@ -156,7 +157,7 @@ const IndexPage = ({ data }) => {
             style={{ maxWidth: "360px", width: "100%" }}
             href="https://httpssitesgooglecomviewvirtuartecrinicio.simplybook.me/v2/"
           >
-            <Button>Reservar ahora</Button>
+            <ReservarAhoraButton />
           </a>
         </ContentWrapper>
       </section>
