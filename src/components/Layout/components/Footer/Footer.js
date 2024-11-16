@@ -6,7 +6,6 @@ const Footer = (props) => {
       <div>
         <span>Contáctenos</span>
         <span>Tel:</span>
-        <span>+506 8318 5487</span>
         <span>+506 7083 6361</span>
       </div>
       <div>
