@@ -11,7 +11,7 @@ const Docentes = ({ data }) => {
       <Helmet>
         <title>Docentes</title>
       </Helmet>
-      <h1 className={styles.title}>¡Conocé nuestros docentes!</h1>
+      <h1 className={styles.title}>¡Hacé click en tu curso de interes!</h1>
       <div className={styles.cursosList}>
         {data.allPrismicCurso?.nodes?.map?.((curso) => (
           <CursoItem

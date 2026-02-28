@@ -1,14 +1,19 @@
 @use "src/styles/sizes";
 .courses-container {
-  display: grid;
   justify-items: center;
   align-items: flex-start;
-  grid-template-columns: minmax(0, 570px);
-  grid-template-rows: auto auto auto auto;
-  grid-auto-flow: column;
-  gap: 10px 3rem;
+  max-width: 800px;
   justify-content: center;
-
+  align-items: center;
+  h2{
+    margin-bottom: 1rem;
+  }
+  
+  h4{
+    margin-top: 0px;
+    margin: 0;
+    color: rgba(54, 44, 92, 1);
+  }
 }
 
 .benefitsContainer {

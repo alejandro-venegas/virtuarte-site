@@ -11,7 +11,7 @@ const ParallaxTitle = (props) => {
     if (img)
       img.setAttribute(
         "style",
-        `transform: translate3d(0, ${scroll * 0.5}px, 0)`
+        `transform: translate3d(0, ${scroll * 0.5}px, 0)`,
       );
     else img = document.querySelector(`.parallax-title`);
 
@@ -38,10 +38,10 @@ const ParallaxTitle = (props) => {
         className={styles.overlay}
         style={{ backgroundColor: props.overlayColor }}
       ></div>
-      <h1 className={styles.title} style={props.titleStyle}>
-        {props.title}
-      </h1>
-      p
+      <div className={styles.title}>
+        <h1 style={props.titleStyle}>{props.title}</h1>
+        <h2>{props.subtitle}</h2>
+      </div>
     </div>
   );
 };

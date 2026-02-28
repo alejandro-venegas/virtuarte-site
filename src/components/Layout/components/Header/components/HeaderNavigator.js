@@ -18,7 +18,7 @@ const HeaderNavigator = (props) => {
     {
       id: "/docentes",
       to: "/docentes",
-      name: "Docentes",
+      name: "Cursos",
     },
     {
       id: "/blog",

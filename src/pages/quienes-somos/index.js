@@ -33,10 +33,15 @@ const QuienesSomos = () => {
         <ContentWrapper>
           <h2>¿Qué es Virtuarte?</h2>
           <p style={{ textAlign: "center", width: "940px" }}>
-            Es una oportunidad para acceder de manera virtual al aprendizaje de
-            la música. No solamente desde un referente meramente académico, sino
-            desde las distintas virtudes que conforman a cada persona; buscando
-            la manera más eficaz de aprender mediante herramientas digitales.{" "}
+            Virtuarte es una academia de música especializada en la enseñanza
+            del piano y canto, enfocada en el desarrollo musical, emocional y
+            humano de cada estudiante. Nuestro propósito es brindar una
+            formación integral que combine técnica, sensibilidad artística,
+            motivación y disfrute, rompiendo con los esquemas rígidos de la
+            educación musical tradicional. Creemos que cada persona aprende
+            distinto, por eso nuestras clases son personalizadas, respetuosas
+            del ritmo individual y centradas en el proceso, no solo en el
+            resultado.
           </p>
         </ContentWrapper>
         <div className={styles.backgroundColor}>

@@ -30,12 +30,6 @@ const benefits = [
     description: "Escoge el horario y docente de preferencia.",
   },
   {
-    img: programasImg,
-
-    alt: "Programas adaptados",
-    description: "Programas adaptados a sus objetivos.",
-  },
-  {
     img: juegosImg,
     alt: "Actividades",
     description:
@@ -60,7 +54,7 @@ const IndexPage = ({ data }) => {
   return (
     <section>
       <ParallaxTitle
-        overlayColor={"rgba(33,33,33,0.4)"}
+        overlayColor={"rgba(33,33,33,0.6)"}
         title={"Virtuarte"}
         titleStyle={{
           color: "white",
@@ -68,6 +62,7 @@ const IndexPage = ({ data }) => {
         }}
         height={"520px"}
         alt={""}
+        subtitle="¡En crecimiento continuo!"
       >
         <StaticImage
           backgroundColor={"rgb(97, 170, 165)"}
@@ -76,39 +71,23 @@ const IndexPage = ({ data }) => {
         />
       </ParallaxTitle>
       <ContentWrapper>
-        <span className={"h2"}>¡En crecimiento continuo!</span>
         <section className={styles.coursesContainer}>
-          <h2>
-            Clases de piano, canto y guitarra virtuales <br /> (+6 años)
-          </h2>
-          <p>
-            Accede desde cualquier lugar utilizando nuestra plataforma virtual.
-            Recibe clases de nivel principiante, intermedio y/o avanzado; así
-            como acceso a videos, juegos, actividades y demás materiales para
-            facilitar el aprendizaje. Dirigido a todas las edades.
-          </p>
-          <h2>Clase de muestra gratuita</h2>
-          <p>
-            Recibe una{" "}
-            <a
-              href="https://httpssitesgooglecomviewvirtuartecrinicio.simplybook.me/v2/"
-              target={"_blank"}
-              rel={"noreferrer"}
-            >
-              clase de muestra gratuita
-            </a>{" "}
-            con el/la docente de preferencia (donde conocerás los programas,
-            métodos, dinámicas, entre otras cosas).
-          </p>
+          <h2>Clases de música virtuales personalizadas</h2>
+          <h4 style={{ marginTop: "2rem", textAlign: "center" }}>
+            No existe un único camino de aprendizaje,
+            <strong> estructuramos un método de acuerdo tus objetivos.</strong>
+          </h4>
         </section>
-        <div style={{ margin: "3rem" }}>
-          <StaticImage
-            src={"../images/computer_logo.png"}
-            aria-hidden={true}
-            width={365}
-            alt={"Computer with Logo"}
-          />
-        </div>
+        <section style={{ marginBottom: "2rem" }}>
+          <ContentWrapper>
+            <a
+              style={{ maxWidth: "400px", width: "100%", marginTop: "2rem" }}
+              href="https://httpssitesgooglecomviewvirtuartecrinicio.simplybook.me/v2/"
+            >
+              <ReservarAhoraButton />
+            </a>
+          </ContentWrapper>
+        </section>
         <section>
           <h2>BENEFICIOS</h2>
           <div className={styles.benefitsContainer}>
@@ -130,36 +109,15 @@ const IndexPage = ({ data }) => {
             </ContentWrapper>
           </section>
         )}
-        <section>
-          <h2>Variedad de paquetes</h2>
-          <p style={{ maxWidth: "750px", textAlign: "center" }}>
-            Virtuarte presenta variedad de paquetes para diferentes modalidades
-            de aprendizaje. ¡Escoge el paquete que se adapte a su interés!
-          </p>
-          <AnimLink
-            style={{ width: "100%", maxWidth: "560px" }}
-            to={"/paquetes"}
-          >
-            <Button>Mirar Paquetes</Button>
-          </AnimLink>
-        </section>
       </ContentWrapper>
       <section>
         <div className={styles.coloredBackground}>
           <ContentWrapper>
             <h2 style={{ color: "white" }}>
-              Reserva tu clase de muestra gratuita
+              Más de 5 años formando personas a través de la música
             </h2>
           </ContentWrapper>
         </div>
-        <ContentWrapper>
-          <a
-            style={{ maxWidth: "360px", width: "100%" }}
-            href="https://httpssitesgooglecomviewvirtuartecrinicio.simplybook.me/v2/"
-          >
-            <ReservarAhoraButton />
-          </a>
-        </ContentWrapper>
       </section>
     </section>
   );
