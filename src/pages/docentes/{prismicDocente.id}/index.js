@@ -17,7 +17,6 @@ const Docente = ({ data }) => {
   const experienciaLaboral = docente.experiencia_laboral;
   const video = docente.video;
 
-  
   return (
     <section style={{ marginTop: "100px" }}>
       <Helmet>
@@ -41,7 +40,7 @@ const Docente = ({ data }) => {
             <h3 style={{ textAlign: "center" }}>
               Reservá tu clase de muestra gratuita
             </h3>
-            <ReservarAhoraButton/>
+            <ReservarAhoraButton />
           </div>
         </div>
         <section className={styles.section}>
@@ -81,10 +80,6 @@ export const query = graphql`
         }
         nombres {
           text
-        }
-        video {
-          embed_url
-          html
         }
       }
     }
